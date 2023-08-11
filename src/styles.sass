@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@import './custom-variables'
+
+@each $color, $value in $theme-colors
+  .bg-#{$color}
+    background-color: $value !important
+
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons"
+@import '../node_modules/bootstrap/scss/bootstrap'
+
+body
+  background-color: $lavender-blush
