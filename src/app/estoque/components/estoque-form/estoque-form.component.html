@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-header">Adicione um item ao estoque</div>
+  <div class="card-body">
+    <form [formGroup]="form">
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInput"
+          placeholder="Nome do item"
+          formControlName="name"
+        />
+        <label for="floatingInput">Nome do item</label>
+      </div>
+      <div class="type-amount-container">
+        <select class="form-select" aria-label="Default select example" formControlName="type">
+          <option selected value="Selecione o tipo">Selecione o tipo</option>
+          <option value="Marmoraria">Marmoraria</option>
+          <option value="Vidraçaria">Vidraçaria</option>
+        </select>
+        <div class="form-floating">
+          <input
+            type="number"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Quantidade"
+            formControlName="amount"
+          />
+          <label for="floatingPassword">Quantidade</label>
+        </div>
+      </div>
+      <div class="action-buttons">
+        <button (click)="onSubmit()"><i class="bi bi-save"></i> Salvar</button>
+        <button (click)="onCancel()"><i class="bi bi-x-lg"></i> Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast align-items-center" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="d-flex">
+    <div class="toast-body">
+      <i class="bi bi-exclamation-circle"></i>
+      {{toastMessage}}
+    </div>
+  </div>
+</div>

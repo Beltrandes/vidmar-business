@@ -1,8 +1,6 @@
 export interface ItemEstoque {
-  id: number;
+  _id: string;
   amount: number;
-  code: number;
   name: string;
   type: 'Marmoraria' | 'Vidraçaria';
-  status: 'Em estoque' | 'Em falta';
 }

@@ -1,0 +1,63 @@
+@import '/src/_custom-variables.scss'
+
+.card
+  width: 80%
+  margin: 2rem auto
+  border: 2px solid $hunyadi-yellow
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
+  .card-header
+    text-align: center
+    font-size: 1.5rem
+    background-color: $dark-purple
+    color: $hunyadi-yellow
+    border-bottom: 2px solid $hunyadi-yellow
+  .form-floating
+    input, select
+      border: 1px solid $dark-purple
+      &:focus
+        border: 1px solid $flame
+        box-shadow: 0 0 0 0.2rem rgba(238, 86, 34, 0.5)
+  .type-amount-container
+    display: flex
+    select
+      width: 50%
+      border: 1px solid $dark-purple
+      &:focus
+        border: 1px solid $flame
+        box-shadow: 0 0 0 0.2rem rgba(238, 86, 34, 0.5)
+    .form-floating
+      margin: 0 auto
+  .action-buttons
+    display: flex
+    align-items: center
+    justify-content: space-evenly
+    margin: 0 auto
+    margin-top: 1rem
+    width: 30%
+
+    button
+      border: none
+      padding: .5rem
+      width: 40%
+      border-radius: 5px
+      background-color: $flame
+      transition: .1s
+      font-weight: 400
+      &:hover
+        background-color: $dark-purple
+        color: $flame
+        i
+          color: $flame
+.toast
+  margin: 0 auto
+  z-index: 9999
+  background-color: $hunyadi-yellow
+  border-radius: 5px
+  border: 1px solid $flame
+  color: $dark-purple
+  .toast-body
+    font-size: 1.1rem
+    width: 100%
+    text-align: center
+
+

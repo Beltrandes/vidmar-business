@@ -1,25 +1,43 @@
-<table class="table">
-  <thead>
-    <tr class="table-head">
-      <th scope="col">Qtde.</th>
-      <th scope="col">Código</th>
-      <th scope="col">Item</th>
-      <th scope="col">Tipo</th>
-      <th scope="col">Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of itens" class="table-rows">
-      <th scope="row">{{item.amount}}</th>
-      <td>{{item.code}}</td>
-      <td>{{item.name}}</td>
-      <td>{{item.type}}</td>
-      <td class="action-buttons">
-        <button><i class="bi bi-box-arrow-up"></i></button>
-        <button><i class="bi bi-plus-square"></i></button>
-        <button><i class="bi bi-pencil-square"></i></button>
-        <button><i class="bi bi-trash"></i></button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="itens.length > 0; else zeroItems" class="table-container">
+  <table class="table">
+    <thead>
+      <tr class="table-head">
+        <th class="amount-head" scope="col">Qtde.</th>
+        <th scope="col">Item</th>
+        <th class="type-head" scope="col">Tipo</th>
+        <th class="actions-head" scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of itens; let i = index" class="table-rows">
+        <th [ngClass]="{'outStock': item.amount === 0}" scope="row">{{ item.amount }} <i *ngIf="item.amount === 0" class="bi bi-exclamation-circle"> Em falta</i></th>
+        <td>{{ item.name }}</td>
+        <td>{{ item.type }}</td>
+        <td class="action-buttons" *ngIf="!onAddState || activeItemIndex !== i">
+          <button (click)="changeAmount(i)">
+            <i class="bi bi-plus-slash-minus"></i>
+          </button>
+          <button (click)="onEdit(item)"><i class="bi bi-pencil"></i></button>
+          <button (click)="onRemove(item)"><i class="bi bi-trash"></i></button>
+        </td>
+        <td class="onAddInput" *ngIf="onAddState && activeItemIndex === i">
+          <button (click)="decreaseAmount()">
+            <i class="bi bi-dash"></i>
+          </button>
+          <input [(ngModel)]="amount" type="number" />
+          <button (click)="addAmount()"><i class="bi bi-plus"></i></button>
+          <button (click)="onSubmitAmount(i, amount + item.amount)">
+            <i class="bi bi-check-lg"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #zeroItems>
+  <div class="card zero-items">
+    <div class="card-body">
+      <h5>Não existe nenhum item aqui. Tente adicionar um item.</h5>
+    </div>
+  </div>
+</ng-template>

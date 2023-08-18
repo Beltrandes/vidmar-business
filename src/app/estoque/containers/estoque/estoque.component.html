@@ -1,31 +1,37 @@
 <div class="estoque-container">
+  <div class="card">
+    <div class="card-body">
+      <div class="search">
+        <i class="bi bi-search"></i>
+        <input type="text" #searchTerm class="form-control" id="floatingInput" (keyup)="onSearch(searchTerm.value)" placeholder="Pesquisar">
+      </div>
+      <div class="filter">
+        <i class="bi bi-funnel"></i>
+        <select class="form-select" #filterType (change)="filterByTypeAndSearch(filterType.value, searchTerm.value)" aria-label="Default select example">
+          <option value="Todos" selected>Todos</option>
+          <option value="Marmoraria">Marmoraria</option>
+          <option value="Vidraçaria">Vidraçaria</option>
+        </select>
+      </div>
+      <div class="add-button">
+        <button (click)="addItem()"><i class="bi bi-plus-lg"></i></button>
+      </div>
+    </div>
+  </div>
   <app-tabela-estoque
     *ngIf="itens$ | async as itens; else loading"
     [itens]="itens"
+    (add)="onAdd()"
+    [onAddState]="onAddState"
+    (changeItemAmount)="onChangeItemAmount($event)"
+    (remove)="onRemove($event)"
+    (edit)="onEdit($event)"
   ></app-tabela-estoque>
   <ng-template #loading>
 
   </ng-template>
 
 </div>
-<!-- Modal -->
-<div class="modal" id="errorModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Erro no Carregamento</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Ocorreu um erro ao carregar os itens do estoque. Por favor, tente novamente mais tarde.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 
