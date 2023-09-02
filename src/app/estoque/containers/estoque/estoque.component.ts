@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable, Subscription, debounceTime, delay, distinctUntilChanged, map, of, switchMap } from 'rxjs';
-import { ItemEstoque } from 'src/app/models/ItemEstoque';
+import { ItemEstoque } from '../../models/ItemEstoque';
 import { EstoqueService } from '../../services/estoque.service';
 import { ActivatedRoute, Router } from '@angular/router';
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ItemEstoque } from 'src/app/models/ItemEstoque';
+import { ItemEstoque } from 'src/app/estoque/models/ItemEstoque';
 import { HttpClient } from '@angular/common/http';
 import { first, Observable, reduce } from 'rxjs';
 

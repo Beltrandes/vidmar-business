@@ -1,0 +1,129 @@
+@import 'src/_custom-variables.scss'
+
+.lista-clientes-container
+  background-color: white
+  border: 2px solid $hunyadi-yellow
+  border-radius: 5px
+  width: 80%
+  overflow-y: scroll
+  margin: 1rem auto
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
+
+
+  .card
+    width: 80%
+    margin: 1rem auto
+    display: flex
+    flex-direction: column
+    background-color: #fceeee
+    border: 1px solid $flame
+    border-radius: 5px
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
+
+    .cliente-infos
+      padding: .2rem 1rem
+      span
+        color: $flame
+        font-weight: bold
+    .card-body
+      .card-title
+        background-color: $flame
+        border-radius: 5px
+        display: flex
+        height: 50px
+        color: black
+        padding: .5rem
+        align-items: center
+        .cliente-actions
+          margin-left: auto
+          width: 15%
+          display: flex
+          justify-content: space-around
+          align-items: center
+          button
+            background-color: transparent
+            border: none
+            transition: .1s
+            width: 100%
+            border-radius: 50%
+            &:hover
+              transition: .2s ease-out
+              i
+                color: $hunyadi-yellow
+
+            i
+              transition: .1s ease-in
+              font-size: 1.5rem
+
+      .obra-toggle
+        background-color: $dark-purple
+        width: 30%
+        margin: .5rem auto
+        border-radius: 5px
+        transition: .2s
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
+
+        &:hover
+          transition: .2s
+          background-color: $flame
+          button
+            color: black
+            i
+              color: $dark-purple
+
+
+        button
+          border: none
+          width: 100%
+          align-items: center
+          display: flex
+          padding: .5rem 0
+          line-height: 15px
+          flex-direction: column
+          background-color: transparent
+          margin: 0 auto
+          color: $flame
+          i
+            color: black
+          font-weight: bold
+    .obra-container
+      display: flex
+      .card
+        width: 45%
+        background-color: white
+        border: 1px solid $dark-purple
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
+        .card-body
+          .card-title
+            background-color: $dark-purple
+            color: $hunyadi-yellow
+          .card-text
+            span
+              color: $dark-purple
+              font-weight: bold
+        .obra-actions
+          width: 40%
+          display: flex
+          margin: 0 auto
+          justify-content: space-around
+          background-color: $hunyadi-yellow
+          border-radius: 5px
+          overflow: hidden
+          button
+            border: none
+            background-color: transparent
+            width: 100%
+            transition: .2s ease-in
+            &:hover
+              transition: .2 ease-out
+              background-color: $dark-purple
+              i
+                color: $flame
+            i
+              font-size: 1.45rem
+              color: black
+
+
+
+::-webkit-scrollbar
+   width: 10px

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ItemEstoque } from 'src/app/models/ItemEstoque';
+import { ItemEstoque } from 'src/app/estoque/models/ItemEstoque';
 
 @Component({
   selector: 'app-tabela-estoque',
