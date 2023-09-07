@@ -1,62 +1,77 @@
 <div class="lista-clientes-container">
-  <div *ngFor="let cliente of clientes; let i = index" class="card">
-    <div class="card-body">
-      <h5 class="card-title">
-        {{ cliente.name }}
-        <div class="cliente-actions">
-          <button (click)="onEdit(cliente)"><i class="bi bi-pencil"></i></button>
-          <button><i class="bi bi-trash"></i></button>
+  <div class="container" *ngIf="clientes.length > 0">
+    <div *ngFor="let cliente of clientes; let i = index" class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ cliente.name }}
+          <div class="cliente-actions">
+            <button (click)="onEdit(cliente)">
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button (click)="removeCliente(cliente)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </h5>
+        <div class="cliente-infos">
+          <p>
+            <span>Endereço:</span>
+            {{ cliente.address }}
+          </p>
+          <p>
+            <span>Contato:</span>
+            {{ cliente.number }}
+          </p>
         </div>
-      </h5>
-      <div class="cliente-infos">
-        <p class="card-text">
-          <span>Endereço:</span>
-          {{ cliente.address }}
-        </p>
-        <p class="card-text">
-          <span>Contato:</span>
-          {{ cliente.number }}
-        </p>
-      </div>
 
-      <div class="obra-toggle">
-        <button
+        <div class="obra-toggle">
+          <button
+            [@fadeInOut]="cliente.showWorks ? 'in' : 'out'"
+            (click)="toggleObras(cliente)"
+          >
+            <p>Obras ({{ cliente.works.length }})</p>
+            <i class="bi bi-caret-{{ cliente.arrowDirection }}-fill"></i>
+          </button>
+        </div>
+        <div
+          class="obra-container"
+          *ngIf="cliente.showWorks"
           [@fadeInOut]="cliente.showWorks ? 'in' : 'out'"
-          (click)="toggleObras(cliente)"
         >
-          <p>Obras ({{ cliente.works.length }})</p>
-          <i class="bi bi-caret-{{ cliente.arrowDirection }}-fill"></i>
-        </button>
-      </div>
-      <div
-        class="obra-container"
-        *ngIf="cliente.showWorks"
-        [@fadeInOut]="cliente.showWorks ? 'in' : 'out'"
-      >
-        <div class="card obra" *ngFor="let obra of cliente.works">
-          <div class="card-body">
-            <h6 class="card-title">
-              {{ obra.name }}
-            </h6>
+          <div class="card obra" *ngFor="let obra of cliente.works">
+            <div class="card-body">
+              <h6 class="card-title">
+                {{ obra.name }}
+              </h6>
 
-            <p class="card-text"><span>Endereço:</span> {{ obra.address }}</p>
-            <p class="card-text"><span>Tipo de serviço:</span> {{ obra.serviceType }}</p>
-            <p class="card-text">
-              <span>Data de início:</span>
-              {{ obra.initialDate | date : "dd/MM/yyyy" }}
-            </p>
-            <p class="card-text">
-              <span>Data de término:</span>
-              {{ obra.finishDate | date : "dd/MM/yyyy" }}
-            </p>
+              <p class="card-text"><span>Endereço:</span> {{ obra.address }}</p>
+              <p class="card-text">
+                <span>Tipo de serviço:</span> {{ obra.serviceType }}
+              </p>
+              <p class="card-text">
+                <span>Data de início:</span>
+                {{ obra.initialDate | date : "dd/MM/yyyy" }}
+              </p>
+              <p class="card-text">
+                <span>Data de término:</span>
+                {{ obra.finishDate | date : "dd/MM/yyyy" }}
+                <span class="nullDate" *ngIf="obra.finishDate === null"
+                  >A definir</span
+                >
+              </p>
 
-            <div class="obra-actions">
-              <button><i class="bi bi-pencil"></i></button>
-              <button><i class="bi bi-trash"></i></button>
+              <div class="obra-actions">
+                <button><i class="bi bi-pencil"></i></button>
+                <button><i class="bi bi-trash"></i></button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div *ngIf="clientes.length === 0" class="loading-container">
+    <i class="bi bi-emoji-frown"></i>
+    <span>Não tem nada aqui, cadastre um cliente.</span>
   </div>
 </div>

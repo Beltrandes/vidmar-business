@@ -1,122 +1,134 @@
 <div class="card form-container">
-  <div class="card-header">Adicione um cliente</div>
-  <div class="card-body">
-    <form [formGroup]="form">
-      <div class="form-floating mb-3">
-        <input
-          type="text"
-          class="form-control"
-          id="floatingName"
-          placeholder="Nome do cliente"
-          formControlName="name"
-        />
-        <label for="floatingName">Nome do cliente</label>
-      </div>
-      <div class="number-address">
-        <div class="form-floating">
-          <input
-            type="tel"
-            class="form-control"
-            id="floatingTel"
-            placeholder="Número de telefone"
-            formControlName="number"
-          />
-          <label for="floatingTel">Celular</label>
-        </div>
-        <div class="form-floating">
+  <div class="card-container" *ngIf="!isLoading">
+    <div class="card-header">Adicione um cliente</div>
+    <div class="card-body">
+      <form [formGroup]="form">
+        <div class="form-floating mb-3">
           <input
             type="text"
             class="form-control"
-            id="floatingAddress"
-            placeholder="Número de telefone"
-            formControlName="address"
+            id="floatingName"
+            placeholder="Nome do cliente"
+            formControlName="name"
           />
-          <label for="floatingAddress">Endereço(Opcional)</label>
+          <label for="floatingName">Nome do cliente</label>
         </div>
-      </div>
-      <div class="card card-obra">
-        <div class="card-body">
-          <h5>
-            Obras
-            <button (click)="addNewWork()">
-              <i class="bi bi-plus"></i>
-            </button>
-          </h5>
-
-
+        <div class="number-address">
+          <div class="form-floating">
+            <input
+              type="tel"
+              class="form-control"
+              id="floatingTel"
+              placeholder="Número de telefone"
+              formControlName="number"
+            />
+            <label for="floatingTel">Celular</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingAddress"
+              placeholder="Número de telefone"
+              formControlName="address"
+            />
+            <label for="floatingAddress">Endereço(Opcional)</label>
+          </div>
         </div>
-        <table formArrayName="works" *ngFor="let obra of getObrasFormArray(); let i = index">
-          <tr [formGroupName]="i">
-            <td>
-              <div class="form-floating">
-                <input
-                  class="form-control"
-                  id="floatingName"
-                  formControlName="name"
-                />
-                <label for="floatingName">Nome</label>
-              </div>
-            </td>
-            <td>
-              <div class="form-floating">
-                <input
-                  class="form-control"
-                  id="floatingAddress"
-                  formControlName="address"
-                />
-                <label for="floatingAddress">Endereço</label>
-
-              </div>
-            </td>
-            <td>
-              <div class="form-floating">
-                <select
-                  class="form-select"
-                  id="floatingType"
-                  formControlName="serviceType"
-                >
-                <option value="Marmoraria">Marmoraria</option>
-                <option value="Vidraçaria">Vidraçaria</option>
-                <option value="Ambos">Ambos</option>
-                </select>
-                <label for="floatingType">Tipo</label>
-              </div>
-            </td>
-            <td>
-              <div class="form-floating">
-                <input
-                  type="date"
-                  class="form-control"
-                  id="floatingInitialDate"
-                  formControlName="initialDate"
-                />
-                <label for="floatingInitialDate">Início</label>
-              </div>
-            </td>
-            <td>
-              <div class="form-floating">
-                <input
-                  type="date"
-                  class="form-control"
-                  id="floatingFinishDate"
-                  formControlName="finishDate"
-                />
-                <label for="floatingFinishDate">Término</label>
-              </div>
-            </td>
-            <td>
-              <button (click)="removeWork(i)">
-                <i class="bi bi-trash"></i>
+        <div class="card card-obra">
+          <div class="card-body">
+            <h5>
+              Obras
+              <button (click)="addNewWork()">
+                <i class="bi bi-plus"></i>
               </button>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="action-buttons">
-        <button (click)="onSubmit()"><i class="bi bi-save"></i> Salvar</button>
-        <button (click)="onCancel()"><i class="bi bi-x-lg"></i> Cancelar</button>
-      </div>
-    </form>
+            </h5>
+          </div>
+          <table
+            formArrayName="works"
+            *ngFor="let obra of getObrasFormArray(); let i = index"
+          >
+            <tr [formGroupName]="i">
+              <td>
+                <div class="form-floating">
+                  <input
+                    class="form-control"
+                    id="floatingName"
+                    formControlName="name"
+                  />
+                  <label for="floatingName">Nome</label>
+                </div>
+              </td>
+              <td>
+                <div class="form-floating">
+                  <input
+                    class="form-control"
+                    id="floatingAddress"
+                    formControlName="address"
+                  />
+                  <label for="floatingAddress">Endereço</label>
+                </div>
+              </td>
+              <td>
+                <div class="form-floating">
+                  <select
+                    class="form-select"
+                    id="floatingType"
+                    formControlName="serviceType"
+                  >
+                    <option value="Marmoraria">Marmoraria</option>
+                    <option value="Vidraçaria">Vidraçaria</option>
+                    <option value="Ambos">Ambos</option>
+                  </select>
+                  <label for="floatingType">Tipo</label>
+                </div>
+              </td>
+              <td>
+                <div class="form-floating">
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="floatingInitialDate"
+                    formControlName="initialDate"
+                  />
+                  <label for="floatingInitialDate">Início</label>
+                </div>
+              </td>
+              <td>
+                <div class="form-floating">
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="floatingFinishDate"
+                    formControlName="finishDate"
+                  />
+                  <label for="floatingFinishDate">Término</label>
+                </div>
+              </td>
+              <td>
+                <button (click)="removeWork(i)">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="action-buttons">
+          <button (click)="onSubmit()">
+            <i class="bi bi-save"></i> Salvar
+          </button>
+          <button (click)="onCancel()">
+            <i class="bi bi-x-lg"></i> Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="loading-container" *ngIf="isLoading">
+    <div class="spinner-grow" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <span>Salvando os dados...</span>
   </div>
 </div>
 
@@ -130,6 +142,7 @@
   <div class="d-flex">
     <div class="toast-body">
       <i class="bi bi-exclamation-circle"></i>
+      {{ toastMessage }}
     </div>
   </div>
 </div>

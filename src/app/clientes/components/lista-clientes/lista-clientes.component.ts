@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Cliente } from '../../models/Cliente';
 import { animate, query, stagger, state, style, transition, trigger } from '@angular/animations';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -24,6 +24,8 @@ export class ListaClientesComponent {
 
   @Input() clientes: Cliente[] = []
 
+  @Output() remove = new EventEmitter(false)
+
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   toggleObras(cliente: Cliente) {
@@ -33,5 +35,10 @@ export class ListaClientesComponent {
 
   onEdit(cliente: Cliente) {
     this.router.navigate(['edit', cliente._id], {relativeTo: this.route})
+  }
+
+  removeCliente(cliente: Cliente) {
+    this.remove.emit(cliente)
+    console.log(cliente)
   }
 }

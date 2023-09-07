@@ -2,36 +2,55 @@
 
 .lista-clientes-container
   background-color: white
-  border: 2px solid $hunyadi-yellow
   border-radius: 5px
+  display: flex
+  align-items: center
+  justify-content: center
   width: 80%
   overflow-y: scroll
   margin: 1rem auto
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
-
-
+  box-shadow: rgba(75, 3, 116, 0.5) 0px 10px 36px 0px, rgba(155, 9, 253, 0.280) 0px 0px 0px 1px
+  .loading-container
+    height: 300px
+    width: 100%
+    justify-content: space-evenly
+    flex-direction: column
+    display: flex
+    margin: 0 auto
+    align-items: center
+    i
+      font-size: 6rem
+      color: $flame
+    span
+      color: $flame
+      font-size: 1.5rem
   .card
     width: 80%
     margin: 1rem auto
     display: flex
     flex-direction: column
-    background-color: #fceeee
-    border: 1px solid $flame
+    background: linear-gradient(45deg, rgb(238, 86, 34, 0.3), rgb(238, 86, 34, .7))
     border-radius: 5px
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
-
     .cliente-infos
-      padding: .2rem 1rem
+      display: flex
+      justify-content: space-between
+      p
+        background-color: $raisin-black
+        padding: .2rem .4rem
+        border-radius: 5px
+        &:first-of-type
+          width: 68%
+        &:last-of-type
+          width: 30%
       span
-        color: $flame
+        color: $hunyadi-yellow
         font-weight: bold
     .card-body
       .card-title
-        background-color: $flame
+        background-color: $raisin-black
         border-radius: 5px
         display: flex
-        height: 50px
-        color: black
+        color: $hunyadi-yellow
         padding: .5rem
         align-items: center
         .cliente-actions
@@ -46,15 +65,15 @@
             transition: .1s
             width: 100%
             border-radius: 50%
+            color: $hunyadi-yellow
             &:hover
               transition: .2s ease-out
               i
-                color: $hunyadi-yellow
-
+                color: $flame
+                text-shadow: 0px 0px 10px rgb(238, 86, 34)
             i
               transition: .1s ease-in
               font-size: 1.5rem
-
       .obra-toggle
         background-color: $dark-purple
         width: 30%
@@ -62,7 +81,6 @@
         border-radius: 5px
         transition: .2s
         box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
-
         &:hover
           transition: .2s
           background-color: $flame
@@ -70,8 +88,6 @@
             color: black
             i
               color: $dark-purple
-
-
         button
           border: none
           width: 100%
@@ -88,6 +104,7 @@
           font-weight: bold
     .obra-container
       display: flex
+      flex-wrap: wrap
       .card
         width: 45%
         background-color: white
@@ -101,6 +118,8 @@
             span
               color: $dark-purple
               font-weight: bold
+            .nullDate
+              font-weight: 400
         .obra-actions
           width: 40%
           display: flex
@@ -122,8 +141,6 @@
             i
               font-size: 1.45rem
               color: black
-
-
-
 ::-webkit-scrollbar
    width: 10px
+

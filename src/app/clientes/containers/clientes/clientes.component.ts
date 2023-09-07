@@ -19,12 +19,18 @@ export class ClientesComponent {
   }
 
   load() {
+
     this.clientes$ = this.clientesService.listClients()
-    console.log(this.clientes$)
   }
 
   onAdd() {
-    console.log('ok')
     this.router.navigate(['new'], {relativeTo: this.route})
+  }
+
+  onRemoveCliente(cliente: Cliente) {
+    this.clientesService.deleteCliente(cliente._id).subscribe({
+      next: () => this.load(),
+      error: (err) => console.log(err)
+    })
   }
 }

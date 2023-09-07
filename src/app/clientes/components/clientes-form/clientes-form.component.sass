@@ -3,15 +3,36 @@
 .form-container
   width: 80%
   margin: 2rem auto
-  border: 2px solid $hunyadi-yellow
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
+  box-shadow: rgba(75, 3, 116, 0.5) 0px 10px 36px 0px, rgba(155, 9, 253, 0.280) 0px 0px 0px 1px
+
+  .loading-container
+    display: flex
+    justify-content: space-evenly
+    align-items: center
+    flex-direction: column
+    height: 300px
+    .spinner-grow
+      width: 6.5rem
+      height: 6.5rem
+      color: $flame
+    span
+      font-size: 1.5rem
+      font-weight: 500
+      color: $flame
+
   .card-header
     text-align: center
     font-size: 1.5rem
     background-color: $dark-purple
+    margin: .5rem auto
+    border-radius: 5px
+    width: 96%
     color: $hunyadi-yellow
-    border-bottom: 2px solid $hunyadi-yellow
+  form
+    width: 99%
+    margin: 0 auto
   .form-floating
+    width: 100%
     input
       border: 1px solid $dark-purple
       &:focus
@@ -104,15 +125,17 @@
           font-size: 2em
           color: $flame
 .toast
-  margin: 0 auto
+  top: 80%
+  left: 70%
   z-index: 9999
-  background-color: $hunyadi-yellow
+  position: absolute
+
+  background-color: $english-violet
   border-radius: 5px
-  border: 1px solid $flame
-  color: $dark-purple
+  box-shadow: rgba(75, 3, 116, 0.5) 0px 10px 36px 0px, rgba(155, 9, 253, 0.280) 0px 0px 0px 1px
+  color: $flame
   .toast-body
     font-size: 1.1rem
     width: 100%
-    text-align: center
-
+    font-weight: 500
 

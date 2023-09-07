@@ -18,16 +18,25 @@ export class ClientesFormComponent implements OnInit {
 
   toastMessage: string = ''
 
+  isLoading: boolean = false
+
   cliente!: Cliente
 
   private subscription: Subscription | undefined
 
-  constructor(private formBuilder: FormBuilder, private location: Location, private clienteService: ClientesService, private route: ActivatedRoute, private renderer: Renderer2) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private location: Location,
+    private clienteService: ClientesService,
+    private route: ActivatedRoute,
+    private renderer: Renderer2) {
+
     this.form = this.formBuilder.group({
       _id: [''],
       name: [''],
       number: [''],
       address: [''],
+      arrowDirection: ['down'],
       works: this.formBuilder.array([])
     })
   }
@@ -35,7 +44,7 @@ export class ClientesFormComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const clienteId = params.get('id')
-      if(clienteId) {
+      if (clienteId) {
         this.loadCliente(clienteId)
       }
     })
@@ -48,14 +57,38 @@ export class ClientesFormComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       this.subscription = this.clienteService.save(this.form.value).subscribe({
-        next: () => {
-          this.triggerToast('Dados do cliente salvos com sucesso!')
-          this.location.back()
+        next: (cliente: Cliente) => {
+          if (this.form.value.works.length > 0) {
+            const obras = this.form.value.works.map((obra: Obra) => {
+              obra.cliente = cliente
+
+              return obra
+            })
+
+            this.clienteService.updateWorks(cliente._id, obras).subscribe({
+              next: () => {
+                this.isLoading = true
+
+                setTimeout(() => {
+                  this.triggerToast('Cliente e obras salvos com sucesso!')
+                },500)
+              },
+              error: () => this.triggerToast('Erro ao salvar o cliente e as obras!')
+            })
+
+
+          }
+
+
+          setTimeout(() => {
+            this.isLoading = false
+            this.location.back()
+          },1000)
         },
         error: () => {
           this.triggerToast('Erro ao salvar os dados do cliente!')
         },
-        complete: () => {}
+        complete: () => { }
       })
     }
   }
@@ -89,7 +122,7 @@ export class ClientesFormComponent implements OnInit {
     return obras
   }
 
-  private createObra(obra: Obra = {_id: '', name: '', cliente: this.cliente, address: '', serviceType: '', initialDate: '', finishDate: ''}) {
+  private createObra(obra: Obra = { _id: '', name: '', cliente: this.cliente, address: '', serviceType: '', initialDate: '', finishDate: '' }) {
     return this.formBuilder.group({
       _id: [obra._id],
       name: [obra.name],
@@ -120,7 +153,7 @@ export class ClientesFormComponent implements OnInit {
     this.renderer.addClass(toastElement, 'show')
     setTimeout(() => {
       this.renderer.removeClass(toastElement, 'show')
-    }, 3000)
+    }, 20000)
 
     this.toastMessage = message
 

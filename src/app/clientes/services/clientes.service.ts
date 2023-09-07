@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cliente } from '../models/Cliente';
-import { first, tap } from 'rxjs';
+import { first } from 'rxjs';
+import { Obra } from 'src/app/obras/models/Obra';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,7 @@ export class ClientesService {
 
   save(record: Partial<Cliente>) {
     if(record._id) {
-      return this.update(record), this.updateWorks(record)
+      return this.update(record)
     }
 
     return this.create(record)
@@ -42,8 +43,12 @@ export class ClientesService {
     return this.http.put<Cliente>(`${this.API}/${record._id}`, record).pipe(first())
   }
 
-  private updateWorks(record: Partial<Cliente>) {
-    return this.http.put<Cliente>(`${this.API}/obras/${record._id}`, record).pipe(first())
+  updateWorks(clienteId: string, obras: Partial<Obra[]>) {
+    return this.http.put<void>(`${this.API}/obras/${clienteId}`, obras).pipe(first())
+  }
+
+  deleteCliente(id: string) {
+    return this.http.delete<Cliente>(`${this.API}/${id}`).pipe(first())
   }
 
 
