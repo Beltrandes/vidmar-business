@@ -5,16 +5,13 @@
   margin: 2rem auto
   border-radius: 5px
   overflow: hidden
-  border: 2px solid $hunyadi-yellow
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
+  box-shadow: rgb(69, 2, 95) 0px 20px 30px -10px
   table
     width: 100%
     margin-bottom: 0
     .table-head
       th
         text-align: center
-        border-left: 2px solid $hunyadi-yellow
-        border-bottom: 2px solid $hunyadi-yellow
         &:first-of-type
           border-left: none
         background-color: $dark-purple
@@ -30,9 +27,9 @@
         align-items: center
         text-align: center
         button
-          border: 1px solid $flame
-          background-color: $flame
+          background-color: $hunyadi-yellow
           border-radius: 5px
+          border: none
           display: flex
           align-items: center
           justify-content: center
@@ -43,7 +40,7 @@
               color: $flame
           i
             font-weight: 500
-            color: black
+            color: $dark-purple
             font-size: 1.1rem
 
       .action-buttons
@@ -59,12 +56,13 @@
         button
           background-color: transparent
           transition: .1s
+
           i
             font-size: 1.1rem
-            color: $flame
+            color: $dark-purple
           &:last-of-type
             margin-left: 1rem
-            background-color: $flame
+            background-color: $hunyadi-yellow
             &:hover
               background-color: $dark-purple
               i

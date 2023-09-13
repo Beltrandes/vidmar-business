@@ -3,8 +3,9 @@
 .card
   width: 80%
   margin: 2rem auto
-  border: 2px solid $hunyadi-yellow
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
+  box-shadow: rgb(69, 2, 95) 0px 20px 30px -10px
+  border: none
+  background-color: $lavender-blush
   .card-header
     text-align: center
     font-size: 1.5rem
@@ -13,20 +14,25 @@
     border-bottom: 2px solid $hunyadi-yellow
   .form-floating
     input, select
-      border: 1px solid $dark-purple
+      background-color: #ffffff80
       &:focus
         border: 1px solid $flame
         box-shadow: 0 0 0 0.2rem rgba(238, 86, 34, 0.5)
   .type-amount-container
     display: flex
-    select
-      width: 50%
-      border: 1px solid $dark-purple
-      &:focus
-        border: 1px solid $flame
-        box-shadow: 0 0 0 0.2rem rgba(238, 86, 34, 0.5)
+    width: 100%
+    flex-direction: row
+    justify-content: space-between
     .form-floating
-      margin: 0 auto
+      width: 40%
+      select
+        background-color:#ffffff80
+        width: 100%
+        border: none
+        &:focus
+          border: 1px solid $flame
+          box-shadow: 0 0 0 0.2rem rgba(238, 86, 34, 0.5)
+
   .action-buttons
     display: flex
     align-items: center
@@ -40,7 +46,7 @@
       padding: .5rem
       width: 40%
       border-radius: 5px
-      background-color: $flame
+      background-color: $hunyadi-yellow
       transition: .1s
       font-weight: 400
       &:hover
