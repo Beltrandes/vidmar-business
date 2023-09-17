@@ -4,9 +4,11 @@ import { EstoqueComponent } from './containers/estoque/estoque.component';
 import { EstoqueFormComponent } from './components/estoque-form/estoque-form.component';
 
 const routes: Routes = [
-  {path: '', component: EstoqueComponent},
-  {path: 'new', component: EstoqueFormComponent},
-  {path: 'edit/:id', component: EstoqueFormComponent}
+  {path: '', component: EstoqueComponent, children: [
+    {path: 'new', component: EstoqueFormComponent},
+    {path: 'edit/:id', component: EstoqueFormComponent},
+  ]}
+
 ];
 
 @NgModule({

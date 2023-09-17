@@ -1,0 +1,71 @@
+@import '/src/_custom-variables.scss'
+
+.side-tab-container
+  height: 100vh
+  background-color: #5a595a
+  display: flex
+  flex-direction: column
+  align-items: center
+  .dropdown
+    width: 100%
+    .dropdown-menu
+      width: 100%
+      justify-content: space-between
+      border-radius: 2px
+      li
+        height: 50px
+      .dropdown-item
+        height: 50px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        transition: .1s ease-in-out
+        &:hover
+          background-color: #efefef
+          transition: .1s ease-in-out
+          .plus
+            color: white
+        .plus
+          color: #00a2ff
+
+    button
+      background-color: $vid-blue
+      border: none
+      font-size: 1.2rem
+      display: flex
+      border-radius: 2px
+      align-items: center
+      justify-content: center
+      width: 80%
+      margin: 0 auto
+      margin-top: 5.5rem
+      font-weight: 500
+      text-transform: uppercase
+      transition: .1s ease-in-out
+      i
+        font-size: 1.4rem
+        margin-right: .7rem
+      &:hover
+        background-color: white
+        transition: .1s ease-in-out
+        color: $vid-blue
+  .fast-infos
+    margin-top: 2rem
+    width: 80%
+    .to-do
+      height: 15vh
+      background-color: #dcedf7
+      border-radius: 2px
+      border-left: 3px solid $vid-blue
+      margin-bottom: .6rem
+      padding: .2rem
+    .prox-obras
+      height: 15vh
+      background-color: #dcedf7
+      border-radius: 2px
+      border-left: 3px solid $vid-blue
+      margin-bottom: .6rem
+      padding: .2rem
+
+
+

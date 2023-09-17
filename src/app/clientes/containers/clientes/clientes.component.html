@@ -17,6 +17,7 @@
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>
 <app-lista-clientes
       *ngIf="clientes$ | async as clientes"
       [clientes]="clientes"

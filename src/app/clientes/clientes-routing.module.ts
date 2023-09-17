@@ -4,9 +4,13 @@ import { ClientesComponent } from './containers/clientes/clientes.component';
 import { ClientesFormComponent } from './components/clientes-form/clientes-form.component';
 
 const routes: Routes = [
-  { path: '', component: ClientesComponent },
-  { path: 'new', component: ClientesFormComponent },
-  { path: 'edit/:id', component: ClientesFormComponent }
+  {
+    path: '', component: ClientesComponent, children: [
+      { path: 'new', component: ClientesFormComponent },
+      { path: 'edit/:id', component: ClientesFormComponent }
+
+    ]
+  },
 
 ];
 

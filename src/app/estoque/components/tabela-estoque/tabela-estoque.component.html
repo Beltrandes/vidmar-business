@@ -10,7 +10,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of itens; let i = index" class="table-rows">
-        <th [ngClass]="{'outStock': item.amount === 0}" scope="row">{{ item.amount }} <i *ngIf="item.amount === 0" class="bi bi-exclamation-circle"> Em falta</i></th>
+        <th [ngClass]="{'outStock': item.amount === 0}" scope="row">{{ item.amount }} <i *ngIf="item.amount === 0" class="bi bi-exclamation-circle"></i></th>
         <td>{{ item.name }}</td>
         <td>{{ item.type }}</td>
         <td class="action-buttons" *ngIf="!onAddState || activeItemIndex !== i">

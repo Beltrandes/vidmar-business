@@ -1,63 +1,74 @@
 @import '/src/_custom-variables.scss'
 
 .card
-  width: 50%
+  width: 90%
   margin: 0 auto
   margin-top: 2rem
-  background-color: $english-violet
-  box-shadow: rgb(69, 2, 95) 0px 20px 30px -10px
+  background-color: transparent
+  border-radius: 2px
+  border: none
   .card-body
     display: flex
     flex-direction: row
-    justify-content: space-evenly
+    padding: 0
   .search
-    width: 40%
+    width: 35%
     display: flex
     justify-content: center
     align-items: center
     input
-      background-color: #ffffff67
-      border: none
+      border: 1px solid $raisin-black
+      border-radius: 2px
+      width: 85%
+      height: 100%
       &:focus
         border-color: $flame
-        box-shadow: 0 0 0 0.2rem rgba(238, 86, 34, 0.5)
-        outline: 0
+        box-shadow: none
     i
       font-size: 1.5rem
-      margin-right: .8rem
-      color: $hunyadi-yellow
+      margin-right: .3rem
+      width: 15%
+      text-align: center
+      color: $raisin-black
+      background-color: $flame
+      padding: .4rem
+      border: 1px solid #a03917
   .filter
-    width: 30%
+    width: 20%
     display: flex
     align-items: center
     justify-content: center
     select
-      border: none
-      background-color: #ffffff67
+      border: 1px solid $raisin-black
+      width: 70%
+      height: 100%
+      border-radius: 2px
       &:focus
         border-color: $flame
-        box-shadow: 0 0 0 0.2rem rgba(238, 86, 34, 0.5)
         outline: 0
+        box-shadow: none
     i
-      font-size: 1.8rem
-      margin-right: .8rem
-      color: $hunyadi-yellow
-  .add-button
-    display: flex
-    width: 20%
-    align-items: center
-    justify-content: center
-    button
-      border-radius: 5px
-      border: none
-      height: 100%
-      width: 33%
+      font-size: 1.5rem
+      margin-right: .3rem
+      margin-left: 1rem
+      width: 30%
+      text-align: center
+      color: $raisin-black
       background-color: $hunyadi-yellow
+      border: 1px solid #94681d
+      padding: .4rem
+  button
+    border-radius: 2px
+    border: 1px solid #266d96
+    background-color: $vid-blue
+    transition: .1s
+    margin-left: 1rem
+    &:hover
+      background-color: #184763
       transition: .1s
-      &:hover
-        background-color: $dark-purple
-        transition: .1s
-        i
-          color: $flame
+      border-color: #3cadee
       i
-        font-size: 1.5rem
+        color: #fff
+    i
+      font-size: 1.5rem
+      padding: .4rem

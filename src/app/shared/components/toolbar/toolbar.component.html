@@ -1,34 +1,56 @@
-<nav class="navbar navbar-expand-lg bg-english-violet">
-  <div class="container-fluid nav-container">
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="./assets/logo.png" alt="" />
+      <img src="./assets/logo.png" alt="VIDMAR">
     </a>
-    <button class="navbar-toggler">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-2">
-        <a class="nav-link" href="#">
-          <i class="bi bi-columns-gap"></i>
-          Painel</a
-        >
-        <a class="nav-link" routerLink="/estoque">
-          <i class="bi bi-box"></i>Estoque</a
-        >
-        <a class="nav-link" > <i class="bi bi-briefcase"></i>Vendas</a>
-        <a class="nav-link" routerLink="/obras"> <i class="bi bi-bricks"></i>Obras</a>
-        <a class="nav-link" href="#">
-          <i class="bi bi-collection"></i>Orçamentos</a
-        >
-        <a class="nav-link" href="#">
-          <i class="bi bi-cash-coin"></i>Financeiro</a
-        >
-        <a class="nav-link" routerLink="/clientes">
-          <i class="bi bi-people"></i>Clientes</a
-        >
-        <a class="nav-link" href="#">
-          <i class="bi bi-truck-flatbed"></i>Fornecedores</a
-        >
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li>
+          <a class="nav-link active" aria-current="page" href="#">
+            Painel
+            <i class="bi bi-columns-gap"></i>
+
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/estoque">
+            Estoque
+            <i class="bi bi-box"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">
+            Vendas
+            <i class="bi bi-briefcase"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/obras">
+            Obras
+            <i class="bi bi-bricks"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">
+            Orçamentos
+            <i class="bi bi-collection"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">
+            Financeiro
+            <i class="bi bi-cash-coin"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/clientes">
+            Clientes
+            <i class="bi bi-people"></i>
+          </a>
+        </li>
       </ul>
     </div>
   </div>

@@ -1,8 +1,13 @@
 <div class="obras-container">
-  <h5 class="card-title">Todas as obras.</h5>
+  <h5 class="card-title">
+    Todas as obras.
+    <button><i class="bi bi-search"></i></button>
+  </h5>
   <div *ngFor="let obra of obras" class="card obra">
     <div class="card-body">
-      <h5 class="card-title">{{obra.name}}</h5>
+      <h5 class="card-title">
+        {{obra.name}}
+      </h5>
       <div class="obras-info">
     <p><span>Endereço</span>{{ obra.address }}</p>
     <p><span>Cliente</span>{{ obra.cliente.name }}</p>

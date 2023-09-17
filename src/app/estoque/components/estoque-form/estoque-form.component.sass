@@ -1,59 +1,73 @@
 @import '/src/_custom-variables.scss'
 
 .card
-  width: 80%
+  width: 90%
   margin: 2rem auto
-  box-shadow: rgb(69, 2, 95) 0px 20px 30px -10px
   border: none
-  background-color: $lavender-blush
-  .card-header
-    text-align: center
-    font-size: 1.5rem
-    background-color: $dark-purple
-    color: $hunyadi-yellow
-    border-bottom: 2px solid $hunyadi-yellow
+  border-left: 3px solid $vid-blue
+  border-radius: 2px
+  display: flex
+  background-color: #dcedf7
+  .card-body
+    .close-btn
+      text-align: right
+      button
+        background-color: transparent
+        transition: .1s ease-in-out
+        margin-left: auto
+        border: none
+        i
+          font-size: 1.9rem
+        &:hover
+          i
+            color: $vid-blue
+            transition: .1s ease-in-out
+
   .form-floating
     input, select
-      background-color: #ffffff80
+      border-radius: 2px
+      border: 1px solid $raisin-black
       &:focus
-        border: 1px solid $flame
-        box-shadow: 0 0 0 0.2rem rgba(238, 86, 34, 0.5)
+        border: 1px solid #038ddd
+        box-shadow: none
   .type-amount-container
     display: flex
     width: 100%
-    flex-direction: row
-    justify-content: space-between
+
+
     .form-floating
-      width: 40%
+      width: 30%
       select
-        background-color:#ffffff80
-        width: 100%
+        border-radius: 2px
+        width: 97%
         border: none
+        border: 1px solid $raisin-black
         &:focus
-          border: 1px solid $flame
-          box-shadow: 0 0 0 0.2rem rgba(238, 86, 34, 0.5)
+          border: 1px solid #038ddd
+          box-shadow: none
 
   .action-buttons
     display: flex
     align-items: center
-    justify-content: space-evenly
+    justify-content: end
     margin: 0 auto
     margin-top: 1rem
-    width: 30%
+    width: 100%
 
     button
-      border: none
-      padding: .5rem
-      width: 40%
-      border-radius: 5px
+      border: 1px solid #94681d
+      padding: .7rem
+      width: 25%
+      border-radius: 2px
       background-color: $hunyadi-yellow
       transition: .1s
       font-weight: 400
       &:hover
-        background-color: $dark-purple
-        color: $flame
+        background-color: #94681d
+        border-color: $hunyadi-yellow
+        color: $hunyadi-yellow
         i
-          color: $flame
+          color: $hunyadi-yellow
 .toast
   margin: 0 auto
   z-index: 9999

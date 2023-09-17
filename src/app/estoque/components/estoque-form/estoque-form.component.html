@@ -1,6 +1,9 @@
 <div class="card">
-  <div class="card-header">Adicione um item ao estoque</div>
   <div class="card-body">
+    <div class="close-btn">
+      <button (click)="onCancel()"><i class="bi-x-lg"></i></button>
+    </div>
+
     <form [formGroup]="form">
       <div class="form-floating mb-3">
         <input
@@ -31,10 +34,7 @@
         </div>
       </div>
       <div class="action-buttons">
-        <button (click)="onSubmit()"><i class="bi bi-save"></i> Salvar</button>
-        <button (click)="onCancel()">
-          <i class="bi bi-x-lg"></i> Cancelar
-        </button>
+        <button type="button" (click)="onSubmit()"><i class="bi bi-save"></i> Salvar</button>
       </div>
     </form>
   </div>

@@ -12,6 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EstoqueComponent {
   itens$!: Observable<ItemEstoque[]>
 
+  addItemOn: boolean = false
+
   searchTerm  = ''
 
   selectedType = 'Todos'
@@ -72,7 +74,6 @@ export class EstoqueComponent {
   }
 
   addItem() {
-    console.log(this.itens$)
     this.router.navigate(['new'], {relativeTo: this.route})
   }
 

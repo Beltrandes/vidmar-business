@@ -6,18 +6,17 @@
         <input type="text" #searchTerm class="form-control" id="floatingInput" (keyup)="onSearch(searchTerm.value)" placeholder="Pesquisar">
       </div>
       <div class="filter">
-        <i class="bi bi-funnel"></i>
+        <i class="bi bi-filter"></i>
         <select class="form-select" #filterType (change)="filterByTypeAndSearch(filterType.value, searchTerm.value)" aria-label="Default select example">
           <option value="Todos" selected>Todos</option>
           <option value="Marmoraria">Marmoraria</option>
           <option value="Vidraçaria">Vidraçaria</option>
         </select>
       </div>
-      <div class="add-button">
         <button (click)="addItem()"><i class="bi bi-plus-lg"></i></button>
-      </div>
     </div>
   </div>
+  <router-outlet></router-outlet>
   <app-tabela-estoque
     *ngIf="itens$ | async as itens; else loading"
     [itens]="itens"

@@ -1,49 +1,52 @@
 @import '/src/_custom-variables.scss'
 
 .card
-  width: 50%
+  width: 90%
   margin: 0 auto
-  background-color: $english-violet
+  background-color: transparent
   margin-top: 2rem
   border: none
-  box-shadow: rgb(69, 2, 95) 0px 20px 30px -10px
 
   .card-body
     display: flex
-    flex-direction: row
-    justify-content: space-evenly
+    padding: 0
   .search
-    width: 80%
+    width: 35%
     display: flex
     justify-content: center
     align-items: center
     input
-      background-color: #ffffff67
-      border: none
+      border: 1px solid $raisin-black
+      border-radius: 2px
+      width: 85%
+      height: 100%
       &:focus
-        border: 1px solid rgba(255, 208, 0, 0.35)
-        box-shadow: 0 0 0 0.2rem rgba(255, 208, 0, 0.15)
+        border-color: $flame
+        box-shadow: none
     i
       font-size: 1.5rem
-      margin-right: .8rem
-      color: $hunyadi-yellow
-  .add-button
-    display: flex
-    width: 20%
-    align-items: center
-    justify-content: center
-    button
-      border-radius: 5px
-      border: none
-      height: 100%
-      width: 33%
-      background-color: $hunyadi-yellow
+      margin-right: .3rem
+      width: 15%
+      text-align: center
+      color: $raisin-black
+      background-color: $flame
+      padding: .4rem
+      border: 1px solid #a03917
+
+  button
+    border-radius: 2px
+    border: 1px solid #266d96
+    background-color: $vid-blue
+    transition: .1s
+    height: 100%
+    margin-left: 1rem
+    &:hover
+      background-color: #184763
       transition: .1s
-      &:hover
-        background-color: $dark-purple
-        transition: .1s
-        i
-          color: $flame
+      border-color: #3cadee
       i
-        font-size: 1.5rem
-        color: $dark-purple
+        color: #fff
+    i
+      font-size: 1.5rem
+      padding: .4rem
+

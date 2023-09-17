@@ -1,21 +1,23 @@
 @import '/src/_custom-variables.scss'
 
 .table-container
-  width: 80%
+  width: 90%
   margin: 2rem auto
-  border-radius: 5px
+  border-radius: 2px
   overflow: hidden
-  box-shadow: rgb(69, 2, 95) 0px 20px 30px -10px
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
   table
     width: 100%
     margin-bottom: 0
+    border-radius: 2px
     .table-head
       th
         text-align: center
+        border-left: 1px solid $vid-blue
         &:first-of-type
           border-left: none
-        background-color: $dark-purple
-        color: $hunyadi-yellow
+        background-color: $raisin-black
+        color: $vid-blue
       .actions-head
         width: 25%
       .amount-head
@@ -27,17 +29,17 @@
         align-items: center
         text-align: center
         button
-          background-color: $hunyadi-yellow
-          border-radius: 5px
+          background-color: $flame
+          border-radius: 2px
           border: none
           display: flex
           align-items: center
           justify-content: center
           &:hover
-            background-color: $dark-purple
+            background-color: #5a595a
             border-color: transparent
             i
-              color: $flame
+              color: $vid-blue
           i
             font-weight: 500
             color: $dark-purple
@@ -47,7 +49,6 @@
         display: flex
         justify-content: space-evenly
         align-items: center
-        height: 42px
       .onAddInput
         display: flex
         flex-direction: row
