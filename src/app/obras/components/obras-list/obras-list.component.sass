@@ -1,36 +1,75 @@
 @import '/src/_custom-variables.scss'
 
 .obras-container
-  width: 60%
-  border: 1px solid red
-  padding: 1rem
+  width: 100%
   display: flex
-  flex-direction: column
+  justify-content: space-between
+  flex-wrap: wrap
   align-items: center
-  .card-title
-    background-color: $dark-purple
-    padding: .5rem
-    border-radius: 5px
-    width: 90%
-    color: $hunyadi-yellow
-    margin-bottom: 1rem
   .obra
-    width: 90%
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
+    width: 49%
+    border-radius: 2px
     margin-bottom: 1rem
+    border-left: 3px solid $raisin-black
     .card-body
-      .card-title
-        background-color: $flame
-        padding: .5rem
-        border-radius: 5px
-        color: $raisin-black
+      .card-top
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+        .card-header
+          width: 85%
+          background-color: transparent
+          color: $raisin-black
+          padding-left: 0
+          margin-bottom: 1rem
+        .dropdown
+          width: 15%
+          display: flex
+          justify-content: center
+          align-items: center
+
+          button
+            background-color: transparent
+            border: none
+            i
+              font-size: 1.5rem
+
+          .dropdown-menu
+            min-width: 20vh
+            border-radius: 2px
+            .edit-btn
+              &:hover
+                background-color: $hunyadi-yellow
+                outline: 1px solid $raisin-black
+                transition: .1s ease-in-out
+            .remove-btn
+              &:hover
+                background-color: #ff4343
+                transition: .1s ease-in-out
+                outline: 1px solid $raisin-black
+            .dropdown-item
+              display: flex
+              align-items: center
+              font-weight: 500
+              font-size: .9rem
+              justify-content: space-evenly
+              transition: .1s ease-in-out
+              cursor: pointer
+              i
+                font-size: 1.2rem
+                padding: .3rem
+
       .obras-info
         p
-          background-color: #efefef
-          border-radius: 5px
+          background-color: $raisin-black
+          border-radius: 2px
+          color: white
+          padding: .2rem
           span
-            padding: .3rem
-            border-radius: 5px
-            background-color: $dark-purple
             color: $hunyadi-yellow
-            font-weight: 500
+            font-weight: bold
             margin-right: .5rem
+            padding-right: .5rem
+            border-right: 2px solid $hunyadi-yellow

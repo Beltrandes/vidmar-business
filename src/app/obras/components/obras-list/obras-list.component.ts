@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Obra } from '../../models/Obra';
 
 @Component({
@@ -9,4 +9,11 @@ import { Obra } from '../../models/Obra';
 export class ObrasListComponent {
 
   @Input() obras!: Obra[]
+
+  @Output() edit = new EventEmitter(false)
+
+  onEdit(obra: Obra) {
+    this.edit.emit(obra)
+    console.log(obra)
+  }
 }

@@ -1,132 +1,131 @@
 @import 'src/_custom-variables.scss'
 
-
-.loading-container
-  height: 300px
+.cliente-container
+  display: flex
   width: 100%
-  justify-content: space-evenly
-  flex-direction: column
-  display: flex
+  margin-top: 1rem
+  align-items: flex-start
+  flex-wrap: wrap
+  justify-content: space-between
   margin: 0 auto
-  align-items: center
-  i
-    font-size: 6rem
-    color: $flame
-  span
-    color: $flame
-    font-size: 1.5rem
+
 .card
-  width: 90%
-  margin: 1rem auto
+  width: 49%
   display: flex
+  margin-bottom: 1rem
   flex-direction: column
-  background-color: $lavender-blush
-  border-radius: 5px
-  box-shadow: rgb(69, 2, 95) 0px 20px 30px -10px
-  border: none
+  background-color: white
+  border-radius: 2px
+  border-left: 3px solid $flame
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
   .cliente-infos
     display: flex
-    justify-content: space-between
+    flex-direction: column
+
     p
-      margin-top: 1rem
-      font-weight: 500
+      font-weight: 400
       font-size: 1.1rem
-      background-color: #eeeeee6c
-      border-bottom-right-radius: 5px
-      border-top-right-radius: 5px
-      color: $raisin-black
+      background-color: $raisin-black
+      color: white
+      border-radius: 2px
+      padding: .3rem
       &:first-of-type
-        width: 65%
+        width: 100%
       &:last-of-type
-        width: 30%
+        width: 55%
     span
       color: $hunyadi-yellow
-      padding: .3rem
-      border-radius: 5px
+      border-right: 2px solid $hunyadi-yellow
+      padding-right: .4rem
       font-weight: 500
-      background-color: $dark-purple
   .card-body
-    .card-title
-      background-color: $dark-purple
-      border-radius: 5px
+    .card-top
       display: flex
-      color: $hunyadi-yellow
-      padding: .5rem
       align-items: center
-      .cliente-actions
-        margin-left: auto
-        width: 15%
-        display: flex
-        justify-content: space-around
-        align-items: center
-        button
-          background-color: transparent
-          border: none
-          transition: .1s
-          width: 100%
-          border-radius: 50%
-          color: $hunyadi-yellow
-          &:hover
-            transition: .2s ease-out
-            i
-              color: $flame
-              text-shadow: 0px 0px 10px rgb(238, 86, 34)
-          i
-            transition: .1s ease-in
-            font-size: 1.5rem
-    .obra-toggle
-      background-color: $dark-purple
-      height: 60px
-      width: 30%
-      margin: .5rem auto
-      border-radius: 5px
-      transition: .2s
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
-      &:hover
-        transition: .2s
-        background-color: #eeeeee6c
-        button
-          color: $flame
-          i
-            color: $raisin-black
+      justify-content: space-between
       button
         border: none
-        width: 100%
-        align-items: center
-        display: flex
-        padding: .5rem 0
-        line-height: 15px
-        flex-direction: column
         background-color: transparent
-        margin: 0 auto
-        color: $hunyadi-yellow
         i
-          color: $flame
-        font-weight: bold
+          font-size: 1.5rem
+          padding: .4rem
+
+      .dropdown
+        .dropdown-menu
+          min-width: 20vh
+          border-radius: 2px
+          .edit-btn
+            &:hover
+              background-color: $hunyadi-yellow
+              outline: 1px solid $raisin-black
+              transition: .1s ease-in-out
+          .remove-btn
+            &:hover
+              background-color: #ff4343
+              transition: .1s ease-in-out
+              outline: 1px solid $raisin-black
+          .dropdown-item
+            display: flex
+            align-items: center
+            font-weight: 500
+            font-size: .9rem
+            justify-content: space-evenly
+            transition: .1s ease-in-out
+            cursor: pointer
+            i
+              font-size: 1.2rem
+              padding: .3rem
+
+    .card-header
+      background-color: transparent
+      border-radius: 2px
+      padding-left: 0
+      border-bottom-color: $flame
+      display: flex
+      color: $flame
+      width: 95%
+      align-items: center
+
+
+    button
+      border: 1px solid #94681d
+      padding: .5rem
+      display: flex
+      align-items: center
+      background-color: $hunyadi-yellow
+      justify-content: center
+      margin: 0 auto
+      border-radius: 2px
+      color: $raisin-black
+      i
+        color: $raisin-black
+        margin-left: .3rem
+      font-weight: bold
   .obra-container
     display: flex
     flex-wrap: wrap
     .card
-      width: 45%
-      background-color: white
-      box-shadow: rgb(69, 2, 95) 0px 20px 30px -10px
+      width: 100%
+      margin: 1rem auto
+      background-color: #cecece
+      box-shadow: none
+      border: none
+
       .card-body
-        .card-title
-          background-color: $flame
-          color: $raisin-black
+        .card-header
+          color: $flame
+          margin-bottom: 1rem
         .card-text
-          color: $raisin-black
-          font-weight: 500
-          background-color: #eeeeee6c
-          border-top-right-radius: 5px
-          border-bottom-right-radius: 5px
+          color: white
+          font-weight: 400
+          background-color: $raisin-black
+          border-radius: 2px
+          padding: .2rem
           span
-            color: $dark-purple
             font-weight: 500
-            background-color: $dark-purple
-            padding: .3rem
-            border-radius: 5px
-            color: $hunyadi-yellow
+            color: $flame
+            border-right: 2px solid $flame
+            padding-right: .2rem
           .nullDate
             font-weight: 400
       .obra-actions
@@ -153,4 +152,6 @@
             color: $hunyadi-yellow
 ::-webkit-scrollbar
   width: 10px
+
+
 

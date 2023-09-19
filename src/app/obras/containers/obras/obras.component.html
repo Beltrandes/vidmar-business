@@ -1,7 +1,27 @@
 
+
 <div class="obras-list-container">
+  <div class="card">
+    <div class="card-body">
+      <div class="search">
+        <i class="bi bi-search"></i>
+        <input
+          type="text"
+          #searchTerm
+          class="form-control"
+          id="floatingInput"
+          placeholder="Pesquisar"
+        />
+      </div>
+      <div class="add-button">
+        <button (click)="onAdd()"><i class="bi bi-plus-lg"></i></button>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
   <app-obras-list
   *ngIf="obras$ |async as obras"
   [obras]="obras"
+  (edit)="editObra($event)"
   ></app-obras-list>
 </div>

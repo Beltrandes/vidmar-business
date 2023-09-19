@@ -1,0 +1,120 @@
+@import '/src/_custom-variables.scss'
+
+.card
+  width: 100%
+  margin: 2rem auto
+  border: none
+  border-left: 3px solid $vid-blue
+  border-radius: 2px
+  display: flex
+  background-color: #dcedf7
+  .card-body
+    .action-buttons
+      display: flex
+      align-items: center
+      justify-content: end
+      margin: 0 auto
+      margin-top: 1rem
+      width: 100%
+
+      button
+        border: 1px solid #94681d
+        padding: .7rem
+        width: 25%
+        border-radius: 2px
+        background-color: $hunyadi-yellow
+        transition: .1s
+        font-weight: 400
+        &:hover
+          background-color: #94681d
+          font-weight: 500
+          border-color: $hunyadi-yellow
+          color: $hunyadi-yellow
+          letter-spacing: .1rem
+          i
+            color: $hunyadi-yellow
+    .name-address
+      width: 100%
+      display: flex
+      justify-content: space-between
+      margin-bottom: 1rem
+      .form-floating
+        width: 48%
+    .type-dates
+      display: flex
+      justify-content: space-between
+      .form-floating
+        width: 22%
+
+    .close-btn
+      text-align: right
+      button
+        background-color: transparent
+        transition: .1s ease-in-out
+        margin-left: auto
+        border: none
+        i
+          font-size: 1.9rem
+        &:hover
+          i
+            color: $vid-blue
+            transition: .1s ease-in-out
+
+  .form-floating
+    input, select
+      border-radius: 2px
+      border: 1px solid $raisin-black
+      &:focus
+        border: 1px solid #038ddd
+        box-shadow: none
+  .type-amount-container
+    display: flex
+    width: 100%
+
+
+    .form-floating
+      width: 30%
+      select
+        border-radius: 2px
+        width: 97%
+        border: none
+        border: 1px solid $raisin-black
+        &:focus
+          border: 1px solid #038ddd
+          box-shadow: none
+
+  .action-buttons
+    display: flex
+    align-items: center
+    justify-content: end
+    margin: 0 auto
+    margin-top: 1rem
+    width: 100%
+
+    button
+      border: 1px solid #94681d
+      padding: .7rem
+      width: 25%
+      border-radius: 2px
+      background-color: $hunyadi-yellow
+      transition: .1s
+      font-weight: 400
+      &:hover
+        background-color: #94681d
+        border-color: $hunyadi-yellow
+        color: $hunyadi-yellow
+        i
+          color: $hunyadi-yellow
+.toast
+  margin: 0 auto
+  z-index: 9999
+  background-color: $hunyadi-yellow
+  border-radius: 5px
+  border: 1px solid $flame
+  color: $dark-purple
+  .toast-body
+    font-size: 1.1rem
+    width: 100%
+    text-align: center
+
+

@@ -1,0 +1,89 @@
+<div class="card">
+  <div class="card-body">
+    <div class="close-btn">
+      <button><i class="bi-x-lg"></i></button>
+    </div>
+
+    <form [formGroup]="form">
+      <div class="name-address">
+        <div class="form-floating">
+          <input
+            class="form-control"
+            id="floatingName"
+            formControlName="name"
+          />
+          <label for="floatingName">Nome</label>
+        </div>
+        <div class="form-floating">
+          <input
+            class="form-control"
+            id="floatingAddress"
+            formControlName="address"
+          />
+          <label for="floatingAddress">Endereço</label>
+        </div>
+      </div>
+      <div class="type-dates">
+        <div class="form-floating">
+          <select
+            class="form-select"
+            id="floatingClient"
+            formControlName="cliente"
+          >
+            <option selected value=""></option>
+            <option *ngFor="let cliente of clientes" [value]="cliente._id">{{cliente.name}}</option>
+
+          </select>
+          <label for="floatingClient">Cliente</label>
+        </div>
+        <div class="form-floating">
+          <select
+            class="form-select"
+            id="floatingType"
+            formControlName="serviceType"
+          >
+            <option value="Marmoraria">Marmoraria</option>
+            <option value="Vidraçaria">Vidraçaria</option>
+            <option value="Ambos">Ambos</option>
+          </select>
+          <label for="floatingType">Tipo</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="date"
+            class="form-control date-input"
+            id="floatingInitialDate"
+            formControlName="initialDate"
+          />
+          <label for="floatingInitialDate">Início</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="date"
+            class="form-control date-input"
+            id="floatingFinishDate"
+            formControlName="finishDate"
+          />
+          <label for="floatingFinishDate">Término</label>
+        </div>
+      </div>
+      <div class="action-buttons">
+        <button type="button" (click)="onSubmit()"><i class="bi bi-save"></i> Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div
+  class="toast align-items-center"
+  id="toast"
+  role="alert"
+  aria-live="assertive"
+  aria-atomic="true"
+>
+  <div class="d-flex">
+    <div class="toast-body">
+      <i class="bi bi-exclamation-circle"></i>
+    </div>
+  </div>
+</div>

@@ -17,4 +17,27 @@ export class ObraService {
         first()
       )
   }
+
+  findById(id: string) {
+    return this.http.get<Obra>(`${this.API}/${id}`)
+      .pipe(
+        first()
+      )
+  }
+
+  save(record: Partial<Obra>) {
+    if(record._id) {
+      return this.update(record)
+    }
+
+    return this.create(record)
+  }
+
+  private create(record: Partial<Obra>) {
+    return this.http.post<Obra>(this.API, record).pipe(first())
+  }
+
+  private update(record: Partial<Obra>) {
+    return this.http.put<Obra>(`${this.API}/${record._id}`, record).pipe(first())
+  }
 }

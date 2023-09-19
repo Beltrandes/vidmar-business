@@ -1,9 +1,56 @@
 @import '/src/_custom-variables.scss'
 
 .obras-list-container
-  width: 80%
-  min-height: 300px
+  width: 90%
   margin: 2rem auto
-  border-radius: 5px
-  box-shadow: rgb(69, 2, 95) 0px 20px 30px -10px
-  background-color: $lavender-blush
+
+  .card
+    width: 100%
+    margin: 0 auto
+    margin-bottom: 1.5rem
+    background-color: transparent
+    margin-top: 2rem
+    border: none
+    border-radius: 2px
+    .card-body
+      display: flex
+      padding: 0
+    .search
+      width: 35%
+      display: flex
+      justify-content: center
+      align-items: center
+      input
+        border: 1px solid $raisin-black
+        border-radius: 2px
+        width: 85%
+        height: 100%
+        &:focus
+          border-color: $flame
+          box-shadow: none
+      i
+        font-size: 1.5rem
+        margin-right: .3rem
+        width: 15%
+        text-align: center
+        color: $raisin-black
+        background-color: $flame
+        padding: .4rem
+        border: 1px solid #a03917
+
+    button
+      border-radius: 2px
+      border: 1px solid #266d96
+      background-color: $vid-blue
+      transition: .1s
+      height: 100%
+      margin-left: 1rem
+      &:hover
+        background-color: #184763
+        transition: .1s
+        border-color: #3cadee
+        i
+          color: #fff
+      i
+        font-size: 1.5rem
+        padding: .4rem

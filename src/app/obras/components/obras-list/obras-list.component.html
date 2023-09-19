@@ -1,20 +1,42 @@
 <div class="obras-container">
-  <h5 class="card-title">
-    Todas as obras.
-    <button><i class="bi bi-search"></i></button>
-  </h5>
   <div *ngFor="let obra of obras" class="card obra">
     <div class="card-body">
-      <h5 class="card-title">
-        {{obra.name}}
-      </h5>
+      <div class="card-top">
+        <h5 class="card-header">
+          {{ obra.name }}
+        </h5>
+        <div class="dropdown">
+          <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-three-dots-vertical"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item edit-btn"
+                (click)="onEdit(obra)"
+                ><i class="bi bi-pencil"></i>Editar</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item remove-btn"
+                ><i class="bi bi-trash"></i>Excluir</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
       <div class="obras-info">
-    <p><span>Endereço</span>{{ obra.address }}</p>
-    <p><span>Cliente</span>{{ obra.cliente.name }}</p>
-    <p><span>Tipo</span>{{ obra.serviceType }}</p>
-    <p><span>Data de Início</span>{{ obra.initialDate | date:'dd/MM/yyyy'}}</p>
-    <p><span>Data de Término</span>{{ obra.finishDate | date:'dd/MM/yyyy'}}</p>
-  </div>
-  </div>
+        <p><span>Endereço</span>{{ obra.address }}</p>
+        <p><span>Cliente</span>{{ obra.cliente.name }}</p>
+        <p><span>Tipo</span>{{ obra.serviceType }}</p>
+        <p>
+          <span>Data de Início</span
+          >{{ obra.initialDate | date : "dd/MM/yyyy" }}
+        </p>
+        <p>
+          <span>Data de Término</span
+          >{{ obra.finishDate | date : "dd/MM/yyyy" }}
+        </p>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,17 +1,20 @@
-<div class="container" *ngIf="clientes.length > 0">
+<div *ngIf="clientes.length > 0" class="cliente-container">
   <div *ngFor="let cliente of clientes; let i = index" class="card">
     <div class="card-body">
-      <h5 class="card-title">
-        {{ cliente.name }}
-        <div class="cliente-actions">
-          <button (click)="onEdit(cliente)">
-            <i class="bi bi-pencil"></i>
+      <div class="card-top">
+        <h5 class="card-header">
+          {{ cliente.name }}
+        </h5>
+        <div class="dropdown">
+          <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-three-dots-vertical"></i>
           </button>
-          <button (click)="removeCliente(cliente)">
-            <i class="bi bi-trash"></i>
-          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item edit-btn" (click)="onEdit(cliente)"><i class="bi bi-pencil"></i>Editar</a></li>
+            <li><a class="dropdown-item remove-btn" (click)="removeCliente(cliente)"><i class="bi bi-trash"></i>Excluir</a></li>
+          </ul>
         </div>
-      </h5>
+      </div>
       <div class="cliente-infos">
         <p>
           <span>Endereço</span>
@@ -23,15 +26,14 @@
         </p>
       </div>
 
-      <div class="obra-toggle">
         <button
           [@fadeInOut]="cliente.showWorks ? 'in' : 'out'"
           (click)="toggleObras(cliente)"
         >
-          <p>Obras ({{ cliente.works.length }})</p>
+          Obras ({{ cliente.works.length }})
           <i class="bi bi-caret-{{ cliente.arrowDirection }}-fill"></i>
+
         </button>
-      </div>
       <div
         class="obra-container"
         *ngIf="cliente.showWorks"
@@ -39,9 +41,20 @@
       >
         <div class="card obra" *ngFor="let obra of cliente.works">
           <div class="card-body">
-            <h6 class="card-title">
+            <div class="card-top">
+            <h5 class="card-header">
               {{ obra.name }}
-            </h6>
+            </h5>
+            <div class="dropdown">
+              <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item edit-btn"><i class="bi bi-pencil"></i>Editar</a></li>
+                <li><a class="dropdown-item remove-btn"><i class="bi bi-trash"></i>Excluir</a></li>
+              </ul>
+            </div>
+          </div>
 
             <p class="card-text">
               <span>Endereço</span>
@@ -63,10 +76,7 @@
               >
             </p>
 
-            <div class="obra-actions">
-              <button><i class="bi bi-pencil"></i></button>
-              <button><i class="bi bi-trash"></i></button>
-            </div>
+
           </div>
         </div>
       </div>
