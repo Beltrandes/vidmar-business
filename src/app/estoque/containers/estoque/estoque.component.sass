@@ -1,12 +1,25 @@
 @import '/src/_custom-variables.scss'
-
+.estoque-container
+  background-color: white
+  width: 95%
+  margin: 0 auto
 .card
-  width: 90%
+  width: 100%
+  padding: 1rem
   margin: 0 auto
   margin-top: 2rem
   background-color: transparent
   border-radius: 2px
   border: none
+  .card-header
+    width: 100%
+    margin-bottom: 1rem
+    border-bottom-color: $vid-blue
+    border-bottom-width: 2px
+    color: $vid-blue
+    font-weight: 500
+    font-size: 1.4rem
+    background-color: transparent
   .card-body
     display: flex
     flex-direction: row
@@ -19,6 +32,7 @@
     input
       border: 1px solid $raisin-black
       border-radius: 2px
+      background-color: #efefef
       width: 85%
       height: 100%
       &:focus
@@ -42,6 +56,7 @@
       border: 1px solid $raisin-black
       width: 70%
       height: 100%
+      background-color: #efefef
       border-radius: 2px
       &:focus
         border-color: $flame

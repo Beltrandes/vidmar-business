@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable, Subscription } from 'rxjs';
@@ -5,7 +6,7 @@ import { Cliente } from 'src/app/clientes/models/Cliente';
 import { ClientesService } from 'src/app/clientes/services/clientes.service';
 import { ObraService } from '../../services/obra.service';
 import { Obra } from '../../models/Obra';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-obras-form',
@@ -18,13 +19,14 @@ export class ObrasFormComponent implements OnInit {
 
   obra: Obra | undefined
 
+
   clientes$: Observable<Cliente[]> | undefined
 
   clientes: Cliente[] = []
 
   subscription: Subscription | undefined
 
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private clienteService: ClientesService, private obraService: ObraService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private location: Location, private route: ActivatedRoute, private clienteService: ClientesService, private obraService: ObraService) {
     this.form = this.formBuilder.group({
       _id: [''],
       name: [''],
@@ -77,14 +79,17 @@ export class ObrasFormComponent implements OnInit {
   }
 
 
-    onSubmit() {
-      if ( this.form.value.name !== '' && this.form.value.type !== null) {
-        this.obraService.save(this.form.value).subscribe({
-          next: () => {},
-          error: (erro) => console.log(erro),
-          complete: () => {}
-        })
-      }
+  onSubmit() {
+    if ( this.form.value.name !== '' && this.form.value.type !== null) {
+      this.obraService.save(this.form.value).subscribe({
+        next: () => {},
+        error: (erro) => console.log(erro),
+        complete: () => this.onCancel()
+      })
+    }
+  }
 
+  onCancel() {
+    this.location.back()
   }
 }

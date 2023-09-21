@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Obra } from '../models/Obra';
 import { first } from 'rxjs';
+import { Cliente } from 'src/app/clientes/models/Cliente';
 
 @Injectable({
   providedIn: 'root'

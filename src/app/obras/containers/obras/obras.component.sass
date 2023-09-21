@@ -1,17 +1,28 @@
 @import '/src/_custom-variables.scss'
 
 .obras-list-container
-  width: 90%
-  margin: 2rem auto
+  width: 95%
+  margin: 0 auto
+  background-color: white
+
 
   .card
     width: 100%
     margin: 0 auto
     margin-bottom: 1.5rem
     background-color: transparent
-    margin-top: 2rem
+    padding: 1rem
+    margin-top: 1rem
     border: none
     border-radius: 2px
+    .card-header
+      margin-bottom: 1rem
+      font-size: 1.4rem
+      color: $vid-blue
+      font-weight: 500
+      background-color: transparent
+      border-bottom-color: $vid-blue
+      border-width: 2px
     .card-body
       display: flex
       padding: 0
@@ -24,6 +35,7 @@
         border: 1px solid $raisin-black
         border-radius: 2px
         width: 85%
+        background-color: #efefef
         height: 100%
         &:focus
           border-color: $flame

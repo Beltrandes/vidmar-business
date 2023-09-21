@@ -1,23 +1,26 @@
 @import '/src/_custom-variables.scss'
 
 .table-container
-  width: 90%
+  width: 100%
+  padding: 1rem
   margin: 2rem auto
   border-radius: 2px
   overflow: hidden
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
   table
     width: 100%
     margin-bottom: 0
+    background-color: #c5c5c5
     border-radius: 2px
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
     .table-head
       th
         text-align: center
-        border-left: 1px solid $vid-blue
+        border-left: 1px solid $raisin-black
+        border-bottom: 1px solid $raisin-black
         &:first-of-type
           border-left: none
-        background-color: $raisin-black
-        color: $vid-blue
+        background-color: #7a7a7a
+        color: $raisin-black
       .actions-head
         width: 25%
       .amount-head
@@ -25,11 +28,16 @@
       .type-head
         width: 12%
     .table-rows
+      th
+        background-color: #c5c5c5
       td
         align-items: center
+        border-left: 1px solid $raisin-black
+        background-color: #c5c5c5
         text-align: center
+
         button
-          background-color: $flame
+          background-color: $raisin-black
           border-radius: 2px
           border: none
           display: flex
@@ -38,11 +46,9 @@
           &:hover
             background-color: #5a595a
             border-color: transparent
-            i
-              color: $vid-blue
           i
             font-weight: 500
-            color: $dark-purple
+            color: $hunyadi-yellow
             font-size: 1.1rem
 
       .action-buttons
@@ -65,9 +71,9 @@
             margin-left: 1rem
             background-color: $hunyadi-yellow
             &:hover
-              background-color: $dark-purple
+              background-color: $flame
               i
-                color: $flame
+                color: $raisin-black
             i
               color: black
 

@@ -1,8 +1,11 @@
 @import '/src/_custom-variables.scss'
 
 .clientes-container
-  width: 90%
+  width: 95%
   margin: 0 auto
+  background-color: white
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
+
 
   .card
     width: 100%
@@ -11,7 +14,17 @@
     background-color: transparent
     margin-top: 2rem
     border: none
+    padding: 1rem
     border-radius: 2px
+    .card-header
+      background-color: transparent
+      margin-bottom: 1rem
+      border-bottom-color: $vid-blue
+      border-bottom-width: 2px
+      font-size: 1.5rem
+      font-weight: 500
+      color: $vid-blue
+      i
     .card-body
       display: flex
       padding: 0
@@ -23,6 +36,7 @@
       input
         border: 1px solid $raisin-black
         border-radius: 2px
+        background-color: #efefef
         width: 85%
         height: 100%
         &:focus
