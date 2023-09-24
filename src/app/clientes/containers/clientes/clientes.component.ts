@@ -19,7 +19,7 @@ export class ClientesComponent {
   }
 
   load() {
-
+    console.log('passou aqui')
     this.clientes$ = this.clientesService.listClients()
   }
 

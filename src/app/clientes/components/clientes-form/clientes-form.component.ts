@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, UntypedFormArray } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ClientesService } from '../../services/clientes.service';
@@ -15,6 +15,8 @@ import { Obra } from 'src/app/obras/models/Obra';
 export class ClientesFormComponent implements OnInit {
 
   form!: FormGroup
+
+  @Output() load = new EventEmitter(false)
 
   toastMessage: string = ''
 
@@ -67,13 +69,9 @@ export class ClientesFormComponent implements OnInit {
 
             this.clienteService.updateWorks(cliente._id, obras).subscribe({
               next: () => {
-                this.isLoading = true
 
-                setTimeout(() => {
-                  this.triggerToast('Cliente e obras salvos com sucesso!')
-                },500)
+
               },
-              error: () => this.triggerToast('Erro ao salvar o cliente e as obras!')
             })
 
 
@@ -86,7 +84,6 @@ export class ClientesFormComponent implements OnInit {
           },1000)
         },
         error: () => {
-          this.triggerToast('Erro ao salvar os dados do cliente!')
         },
         complete: () => { }
       })
@@ -148,14 +145,5 @@ export class ClientesFormComponent implements OnInit {
     obras.removeAt(index)
   }
 
-  triggerToast(message: string) {
-    const toastElement = document.getElementById('toast')
-    this.renderer.addClass(toastElement, 'show')
-    setTimeout(() => {
-      this.renderer.removeClass(toastElement, 'show')
-    }, 20000)
 
-    this.toastMessage = message
-
-  }
 }

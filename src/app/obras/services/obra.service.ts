@@ -35,6 +35,7 @@ export class ObraService {
   }
 
   private create(record: Partial<Obra>) {
+    console.log(record)
     return this.http.post<Obra>(this.API, record).pipe(first())
   }
 

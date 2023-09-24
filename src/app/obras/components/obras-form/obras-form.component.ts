@@ -37,7 +37,6 @@ export class ObrasFormComponent implements OnInit {
       finishDate: ['']
     })
     this.loadClientes()
-    console.log(this.form)
   }
 
   ngOnInit(): void {
@@ -81,15 +80,25 @@ export class ObrasFormComponent implements OnInit {
 
   onSubmit() {
     if ( this.form.value.name !== '' && this.form.value.type !== null) {
+
+      this.clientes.map((cliente)=> {
+        if (cliente._id == this.form.value.cliente) {
+          this.form.value.cliente = cliente
+        }
+      })
+
       this.obraService.save(this.form.value).subscribe({
         next: () => {},
         error: (erro) => console.log(erro),
-        complete: () => this.onCancel()
+        complete: () => {
+          this.onCancel()
+        }
       })
     }
   }
 
   onCancel() {
-    this.location.back()
+
+    this.router.navigate(['/obras'], {relativeTo: this.route})
   }
 }
