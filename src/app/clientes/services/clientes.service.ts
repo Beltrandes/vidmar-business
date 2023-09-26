@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cliente } from '../models/Cliente';
-import { first } from 'rxjs';
+import { Subject, first } from 'rxjs';
 import { Obra } from 'src/app/obras/models/Obra';
 
 @Injectable({
@@ -10,6 +10,10 @@ import { Obra } from 'src/app/obras/models/Obra';
 export class ClientesService {
 
   private readonly API = '/api/clientes'
+
+  private addClienteSource = new Subject<void>()
+
+  clienteAdicionado$ = this.addClienteSource.asObservable()
 
   constructor(private http: HttpClient) { }
 
@@ -51,6 +55,8 @@ export class ClientesService {
     return this.http.delete<Cliente>(`${this.API}/${id}`).pipe(first())
   }
 
-
+  successAddCliente() {
+    this.addClienteSource.next()
+  }
 
 }

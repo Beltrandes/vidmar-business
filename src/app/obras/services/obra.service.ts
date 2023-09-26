@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Obra } from '../models/Obra';
-import { first } from 'rxjs';
+import { Subject, first } from 'rxjs';
 import { Cliente } from 'src/app/clientes/models/Cliente';
 
 @Injectable({
@@ -9,6 +9,11 @@ import { Cliente } from 'src/app/clientes/models/Cliente';
 })
 export class ObraService {
   private readonly API = '/api/obras'
+
+  private addObraSource = new Subject<void>()
+
+  obraAdicionada$ = this.addObraSource.asObservable()
+
 
   constructor(private http: HttpClient) { }
 
@@ -41,5 +46,13 @@ export class ObraService {
 
   private update(record: Partial<Obra>) {
     return this.http.put<Obra>(`${this.API}/${record._id}`, record).pipe(first())
+  }
+
+  deleteObra(id: string) {
+    return this.http.delete<Obra>(`${this.API}/${id}`).pipe(first())
+  }
+
+  successAddObra() {
+    this.addObraSource.next()
   }
 }

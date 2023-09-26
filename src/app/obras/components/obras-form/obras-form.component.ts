@@ -88,7 +88,9 @@ export class ObrasFormComponent implements OnInit {
       })
 
       this.obraService.save(this.form.value).subscribe({
-        next: () => {},
+        next: () => {
+          this.obraService.successAddObra()
+        },
         error: (erro) => console.log(erro),
         complete: () => {
           this.onCancel()

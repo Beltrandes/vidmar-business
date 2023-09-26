@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ItemEstoque } from 'src/app/estoque/models/ItemEstoque';
 import { HttpClient } from '@angular/common/http';
-import { first, Observable, reduce } from 'rxjs';
+import { first, Observable, reduce, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EstoqueService {
   private readonly API = '/api/itens-estoque'
+
+  private addItemSource = new Subject<void>()
+
+  itemAdicionado$ = this.addItemSource.asObservable()
 
   constructor(private http: HttpClient) { }
 
@@ -44,6 +48,10 @@ export class EstoqueService {
 
   remove(id: string) {
     return this.http.delete<ItemEstoque>(`${this.API}/${id}`).pipe(first())
+  }
+
+  successAddItem() {
+    this.addItemSource.next()
   }
 
 

@@ -69,8 +69,7 @@ export class ClientesFormComponent implements OnInit {
 
             this.clienteService.updateWorks(cliente._id, obras).subscribe({
               next: () => {
-
-
+                this.clienteService.successAddCliente()
               },
             })
 
@@ -78,14 +77,11 @@ export class ClientesFormComponent implements OnInit {
           }
 
 
-          setTimeout(() => {
-            this.isLoading = false
-            this.location.back()
-          },1000)
+
         },
         error: () => {
         },
-        complete: () => { }
+        complete: () => this.onCancel()
       })
     }
   }

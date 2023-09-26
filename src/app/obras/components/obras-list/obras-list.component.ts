@@ -12,8 +12,14 @@ export class ObrasListComponent {
 
   @Output() edit = new EventEmitter(false)
 
+  @Output() remove = new EventEmitter(false)
+
   onEdit(obra: Obra) {
     this.edit.emit(obra)
     console.log(obra)
+  }
+
+  onRemove(obra: Obra) {
+    this.remove.emit(obra)
   }
 }

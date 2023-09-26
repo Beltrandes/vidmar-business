@@ -86,7 +86,7 @@ export class EstoqueFormComponent implements OnInit {
   onSubmit() {
     if ( this.form.value.name !== '' && this.form.value.type !== null) {
       this.estoqueService.save(this.form.value).subscribe({
-        next: () => {},
+        next: () => this.estoqueService.successAddItem(),
         error: (erro) => this.triggerToast('Erro ao salvar os dados do Item.'),
         complete: () => this.onCancel()
       })

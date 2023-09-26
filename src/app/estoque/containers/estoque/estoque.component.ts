@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription, debounceTime, delay, distinctUntilChanged, map, of, switchMap } from 'rxjs';
 import { ItemEstoque } from '../../models/ItemEstoque';
 import { EstoqueService } from '../../services/estoque.service';
@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './estoque.component.html',
   styleUrls: ['./estoque.component.sass']
 })
-export class EstoqueComponent {
+export class EstoqueComponent implements OnInit {
   itens$!: Observable<ItemEstoque[]>
 
   addItemOn: boolean = false
@@ -28,6 +28,10 @@ export class EstoqueComponent {
     this.load()
   }
 
+  ngOnInit(): void {
+      this.estoqueService.itemAdicionado$.subscribe(() => this.load())
+  }
+
   load() {
     this.itens$ = this.estoqueService.listItems()
 
@@ -38,7 +42,6 @@ export class EstoqueComponent {
   }
 
   onEdit(item: ItemEstoque) {
-    console.log('emitiu')
     this.router.navigate(['edit', item._id], {relativeTo: this.route})
   }
 

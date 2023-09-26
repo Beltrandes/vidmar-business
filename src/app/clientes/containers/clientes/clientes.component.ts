@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cliente } from '../../models/Cliente';
 import { ClientesService } from '../../services/clientes.service';
@@ -9,13 +9,17 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './clientes.component.html',
   styleUrls: ['./clientes.component.sass']
 })
-export class ClientesComponent {
+export class ClientesComponent implements OnInit {
 
 
   clientes$!: Observable<Cliente[]>
 
   constructor(private clientesService: ClientesService, private route: ActivatedRoute, private router: Router) {
     this.load()
+  }
+
+  ngOnInit(): void {
+      this.clientesService.clienteAdicionado$.subscribe(() => this.load())
   }
 
   load() {

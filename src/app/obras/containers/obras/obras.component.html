@@ -22,5 +22,6 @@
     *ngIf="obras$ | async as obras"
     [obras]="obras"
     (edit)="editObra($event)"
+    (remove)="removeObra($event)"
   ></app-obras-list>
 </div>
