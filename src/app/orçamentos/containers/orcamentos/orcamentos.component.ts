@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Orçamento } from '../../models/Orçamento';
+import { OrçamentoService } from '../../services/orçamento.service';
 
 @Component({
   selector: 'app-orcamentos',
@@ -7,4 +10,13 @@ import { Component } from '@angular/core';
 })
 export class OrcamentosComponent {
 
+  orcamentos$!: Observable<Orçamento[]>
+
+  constructor(private orcamentoService: OrçamentoService) {
+    this.load()
+  }
+
+  load() {
+    this.orcamentos$ = this.orcamentoService.listOrçamentos()
+  }
 }

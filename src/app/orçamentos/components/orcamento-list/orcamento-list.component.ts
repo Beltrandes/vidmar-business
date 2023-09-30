@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Orçamento } from '../../models/Orçamento';
 
 @Component({
   selector: 'app-orcamento-list',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class OrcamentoListComponent {
 
+  @Input() orcamentos: Orçamento[] = []
+
+  mostrarDetalhes: boolean = false
+
+  detalhesToggleText: string = 'Ver'
+
+  verDetalhes() {
+    this.mostrarDetalhes = !this.mostrarDetalhes
+
+    if (this.detalhesToggleText == 'Ver') {
+      this.detalhesToggleText = 'Ocultar'
+    } else {
+      this.detalhesToggleText = 'Ver'
+    }
+  }
 }

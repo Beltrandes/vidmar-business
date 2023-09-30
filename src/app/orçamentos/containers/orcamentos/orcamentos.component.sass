@@ -1,0 +1,66 @@
+@import '/src/_custom-variables.scss'
+
+.orcamentos-main-container
+  min-height: 90vh
+  width: 95%
+  margin: 1.5rem auto
+  background-color: white
+  .card
+    width: 100%
+    margin: 0 auto
+    background-color: transparent
+    padding: 1rem
+    margin-top: 1rem
+    border: none
+    border-radius: 2px
+    .card-header
+      margin-bottom: 1rem
+      font-size: 1.4rem
+      color: $vid-blue
+      font-weight: 500
+      background-color: transparent
+      border-bottom-color: $vid-blue
+      border-width: 2px
+    .card-body
+      display: flex
+      padding: 0
+    .search
+      width: 35%
+      display: flex
+      justify-content: center
+      align-items: center
+      input
+        border: 1px solid $raisin-black
+        border-radius: 2px
+        width: 85%
+        background-color: #efefef
+        height: 100%
+        &:focus
+          border-color: $flame
+          box-shadow: none
+      i
+        font-size: 1.5rem
+        margin-right: .3rem
+        width: 15%
+        text-align: center
+        color: $raisin-black
+        background-color: $flame
+        padding: .4rem
+        border: 1px solid #a03917
+
+    button
+      border-radius: 2px
+      border: 1px solid #266d96
+      background-color: $vid-blue
+      transition: .1s
+      height: 100%
+      margin-left: 1rem
+      &:hover
+        background-color: #184763
+        transition: .1s
+        border-color: #3cadee
+        i
+          color: #fff
+      i
+        font-size: 1.5rem
+        padding: .4rem

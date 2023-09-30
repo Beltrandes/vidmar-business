@@ -1,19 +1,15 @@
 import { Cliente } from "src/app/clientes/models/Cliente"
+import { ItemOrçamento } from "./ItemOrçamento"
 
 export interface Orçamento {
   _id: string
-  cliente: Cliente | string
+  cliente: Cliente
   data: Date
   contato: string
   descricao: string
   arquivos: string[]
   status: 'Não fechado' | 'Fechado'
-  itens: {
-    descricao: string
-    quantidade: number
-    precoUnitario: number
-    total: number
-  }
   total: number
+  itens: ItemOrçamento[]
 
 }

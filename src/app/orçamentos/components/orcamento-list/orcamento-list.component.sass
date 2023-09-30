@@ -1,0 +1,86 @@
+@import '/src/_custom-variables.scss'
+
+.orcamento-list-container
+  width: 100%
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+  padding: 1rem
+  align-items: center
+  .orcamento
+    width: 100%
+    border-radius: 2px
+    margin: 1rem auto
+    background-color: #c5c5c5
+    .card-body
+
+
+      .orcamento-infos
+        display: flex
+        justify-content: space-between
+        align-items: center
+        p
+          background-color: $raisin-black
+          border-radius: 2px
+          width: 28%
+          display: flex
+          align-items: center
+          color: white
+          padding: .2rem
+          span
+            color: $hunyadi-yellow
+            font-weight: bold
+            margin-right: .5rem
+            padding-right: .5rem
+            border-right: 2px solid $hunyadi-yellow
+      .descricao-container
+        background-color: #efefef
+        border-radius: 2px
+        overflow: hidden
+        .card-header
+          color: $hunyadi-yellow
+          font-weight: 500
+          background-color: $raisin-black
+          border-radius: 0px
+        p
+          padding: 1rem
+      .toggle-btn
+        display: flex
+        justify-content: flex-end
+        align-items: center
+        button
+          background-color: $hunyadi-yellow
+          border: none
+          margin-top: .5rem
+          display: flex
+          align-items: center
+          padding: .5rem
+          border-radius: 2px
+          font-weight: 500
+          color: $raisin-black
+          i
+            margin-left: .3rem
+
+
+      .card-top
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin-bottom: 1rem
+        .card-header
+          border-bottom-color: $hunyadi-yellow
+          border-bottom-width: 2px
+          color: $raisin-black
+          background-color: transparent
+          width: 95%
+          font-weight: 500
+        .dropdown
+          width: 5%
+          display: flex
+          align-items: center
+          justify-content: center
+          button
+            background-color: transparent
+            border: none
+            i
+              font-size: 1.5rem

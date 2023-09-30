@@ -5,6 +5,7 @@ import { OrçamentosRoutingModule } from './orçamentos-routing.module';
 import { OrcamentosComponent } from './containers/orcamentos/orcamentos.component';
 import { OrcamentoFormComponent } from './components/orcamento-form/orcamento-form.component';
 import { OrcamentoListComponent } from './components/orcamento-list/orcamento-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { OrcamentoListComponent } from './components/orcamento-list/orcamento-li
   ],
   imports: [
     CommonModule,
-    OrçamentosRoutingModule
+    OrçamentosRoutingModule,
+    HttpClientModule
   ]
 })
 export class OrçamentosModule { }

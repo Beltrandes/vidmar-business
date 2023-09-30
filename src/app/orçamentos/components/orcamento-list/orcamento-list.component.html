@@ -1,1 +1,52 @@
-<p>orcamento-list works!</p>
+<div class="orcamento-list-container">
+  <div class="card orcamento" *ngFor="let orcamento of orcamentos">
+    <div class="card-body">
+      <div class="card-top">
+        <h5 class="card-header">Orçamento Nº: {{ orcamento._id }}</h5>
+        <div class="dropdown">
+          <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-three-dots-vertical"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item edit-btn"
+                ><i class="bi bi-pencil"></i>Editar</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item remove-btn"
+                ><i class="bi bi-trash"></i>Excluir</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="orcamento-infos">
+        <p><span>Cliente</span>{{ orcamento.cliente.name }}</p>
+        <p><span>Contato</span>{{ orcamento.contato }}</p>
+        <p><span>Data</span>{{ orcamento.data | date : "dd/MM/yyyy" }}</p>
+      </div>
+      <div class="descricao-container">
+        <div class="card-header">Descrição Geral</div>
+        <p>{{ orcamento.descricao }}</p>
+      </div>
+      <div class="detalhes" *ngIf="mostrarDetalhes">
+        <div class="itens">
+          <ul *ngFor="let item of orcamento.itens">
+            <h6>Item 0{{item._id}}</h6>
+            <li>Material: {{item.material}}</li>
+            <li>Dimensões(mm): {{item.dimensoes}}</li>
+            <li>Detalhes: {{item.detalhes}}</li>
+            <li>m2: {{item.m2}}</li>
+            <li>Preço por metro: {{item.m2Valor | currency:'BRL'}}</li>
+            <li>Valor por item: {{item.valorItem | currency:'BRL'}}</li>
+            <li>Valor total: {{item.valorTotal | currency:'BRL'}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="toggle-btn">
+        <button (click)="verDetalhes()">{{detalhesToggleText}} detalhes <i *ngIf="!mostrarDetalhes" class="bi bi-caret-down-fill"></i><i *ngIf="mostrarDetalhes" class="bi bi-caret-up-fill"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
