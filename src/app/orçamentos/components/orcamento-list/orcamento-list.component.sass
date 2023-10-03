@@ -13,6 +13,33 @@
     margin: 1rem auto
     background-color: #c5c5c5
     .card-body
+      .final-infos
+              display: flex
+              justify-content: space-between
+              align-items: center
+              flex-direction: row-reverse
+              .valor
+                width: 15%
+                p
+                  font-weight: 500
+                  color: $hunyadi-yellow
+              .forma
+                width: 50%
+              .prazo
+                width: 30%
+              .infos
+                background-color: $raisin-black
+                border-radius: 2px
+                display: flex
+                flex-direction: column
+                color: white
+                text-align: center
+                padding: .3rem
+
+                h6
+                  padding: .3rem
+                  color: $hunyadi-yellow
+                  border-bottom: 2px solid $hunyadi-yellow
 
 
       .orcamento-infos
@@ -37,6 +64,7 @@
         background-color: #efefef
         border-radius: 2px
         overflow: hidden
+        margin-bottom: 1rem
         .card-header
           color: $hunyadi-yellow
           font-weight: 500
@@ -44,6 +72,72 @@
           border-radius: 0px
         p
           padding: 1rem
+      .detalhes
+        .itens
+          .item
+            background-color: #888888
+            border-radius: 2px
+            overflow: hidden
+            margin-bottom: 1rem
+            p
+                background-color: $raisin-black
+                border-radius: 2px
+                padding: .2rem
+                color: white
+                span
+                      color: $hunyadi-yellow
+                      border-right: 2px solid $hunyadi-yellow
+                      padding-right: .3rem
+                      font-weight: 500
+            h6
+              background-color: $hunyadi-yellow
+              padding: .5rem
+              text-align: center
+              border-bottom: 1px solid $raisin-black
+            .mat-det
+              display: flex
+              justify-content: space-between
+              padding: 0 .5rem
+              margin-bottom: 1rem
+              h6
+                border-bottom: 2px solid $hunyadi-yellow
+                padding: .2rem
+                color: $hunyadi-yellow
+                background-color: transparent
+              p
+                background-color: transparent
+                padding: 0
+              .mat
+                width: 20%
+                background-color: $raisin-black
+                text-align: center
+                padding: .3rem
+                border-radius: 2px
+              .det
+                width: 75%
+                text-align: center
+                background-color: $raisin-black
+                border-radius: 2px
+                padding: .3rem
+
+
+
+
+            .numeros
+              display: flex
+              justify-content: space-between
+              padding: 0 .5rem
+              p
+                width: 22%
+            .valores
+              display: flex
+              justify-content: space-between
+              padding: 0 .5rem
+              p
+                width: 28%
+
+
+
       .toggle-btn
         display: flex
         justify-content: flex-end
@@ -77,10 +171,36 @@
         .dropdown
           width: 5%
           display: flex
-          align-items: center
           justify-content: center
+          align-items: center
+
           button
             background-color: transparent
             border: none
             i
               font-size: 1.5rem
+
+          .dropdown-menu
+            min-width: 20vh
+            border-radius: 2px
+            .edit-btn
+              &:hover
+                background-color: $hunyadi-yellow
+                outline: 1px solid $raisin-black
+                transition: .1s ease-in-out
+            .remove-btn
+              &:hover
+                background-color: #ff4343
+                transition: .1s ease-in-out
+                outline: 1px solid $raisin-black
+            .dropdown-item
+              display: flex
+              align-items: center
+              font-weight: 500
+              font-size: .9rem
+              justify-content: space-evenly
+              transition: .1s ease-in-out
+              cursor: pointer
+              i
+                font-size: 1.2rem
+                padding: .3rem

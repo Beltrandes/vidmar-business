@@ -1,1 +1,110 @@
-<p>orcamento-form works!</p>
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="form">
+      <div class="form-floating">
+        <select
+          class="form-select"
+          id="floatingClient"
+          formControlName="cliente"
+        >
+          <option value="" selected></option>
+          <option *ngFor="let cliente of clientes" [value]="cliente._id">
+            {{ cliente.name }}
+          </option>
+        </select>
+        <label for="floatingClient">Cliente</label>
+      </div>
+      <div class="form-floating">
+        <textarea
+         class="form-control"
+         formControlName="descricaoGeral"
+         id="floatingDescription"
+        ></textarea>
+
+        <label for="floatingDescription">Descrição geral</label>
+      </div>
+      <div class="form-floating">
+        <input
+          class="form-control"
+          type="text"
+          id="floatingPrazo"
+          formControlName="prazoDeEntrega"
+        >
+        <label for="floatingPrazo">Prazo de entrega</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="text"
+          id="floatingPrazo"
+          class="form-control"
+          formControlName="formaDePagamento"
+        >
+        <label for="floatingPrazo">Condições de pagamento</label>
+      </div>
+      <button class="add-obra-btn" (click)="addNewItem()">
+        <i class="bi bi-plus-lg"></i>
+        Item
+      </button>
+
+      <div
+        class="obra-form"
+        formArrayName="works"
+        *ngFor="let obra of getItensFormArray(); let i = index"
+        >
+        <form [formGroupName]="i">
+          <h5>{{i + 1}}</h5>
+          <div class="name-address">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                id="floatingNome"
+                formControlName="nome"
+              />
+              <label for="floatingNome">Nome</label>
+            </div>
+            <div class="form-floating">
+              <input
+                class="form-control"
+                id="floatingMaterial"
+                formControlName="material"
+              />
+              <label for="floatingMaterial">Material</label>
+            </div>
+          </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="floatingMedidaX"
+                formControlName="medidaX"
+              >
+
+              <label for="floatingMedidaX">Comprimento</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="floatingMedidaY"
+                formControlName="medidaY"
+              />
+              <label for="floatingMedidaY">Largura</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="floatingQuantidade"
+                formControlName="quantidade"
+              />
+              <label for="floatingQuantidade">Quantidade</label>
+            </div>
+            <button (click)="removeItem(i)">
+              <i class="bi bi-trash"></i>
+            </button>
+        </form>
+      </div>
+    </form>
+
+  </div>
+</div>

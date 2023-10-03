@@ -1,0 +1,42 @@
+@import '/src/_custom-variables.scss'
+
+.card
+  width: 100%
+  border: none
+  margin: 2rem 0
+  border-left: 3px solid $vid-blue
+  border-radius: 2px
+  display: flex
+  background-color: #dcedf7
+  .card-body
+    .form-floating
+      input, select, textarea
+        border-radius: 2px
+        border: 1px solid $raisin-black
+        &:focus
+          border: 1px solid #038ddd
+          box-shadow: none
+    .action-buttons
+      display: flex
+      align-items: center
+      justify-content: flex-end
+      margin: 0 auto
+      margin-top: 1rem
+      width: 100%
+
+      button
+        border: 1px solid #94681d
+        padding: .7rem
+        width: 25%
+        border-radius: 2px
+        background-color: $hunyadi-yellow
+        transition: .1s
+        font-weight: 400
+        &:hover
+          background-color: #94681d
+          font-weight: 500
+          border-color: $hunyadi-yellow
+          color: $hunyadi-yellow
+          letter-spacing: .1rem
+          i
+            color: $hunyadi-yellow

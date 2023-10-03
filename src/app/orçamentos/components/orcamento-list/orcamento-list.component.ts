@@ -4,7 +4,7 @@ import { Orçamento } from '../../models/Orçamento';
 @Component({
   selector: 'app-orcamento-list',
   templateUrl: './orcamento-list.component.html',
-  styleUrls: ['./orcamento-list.component.sass']
+  styleUrls: ['./orcamento-list.component.sass'],
 })
 export class OrcamentoListComponent {
 
@@ -12,15 +12,14 @@ export class OrcamentoListComponent {
 
   mostrarDetalhes: boolean = false
 
-  detalhesToggleText: string = 'Ver'
+  detalhesVisiveis: { [key: string]: boolean} = {}
 
-  verDetalhes() {
-    this.mostrarDetalhes = !this.mostrarDetalhes
+  idOrcamentoSelecionado: string | null = null
 
-    if (this.detalhesToggleText == 'Ver') {
-      this.detalhesToggleText = 'Ocultar'
-    } else {
-      this.detalhesToggleText = 'Ver'
-    }
+
+
+  verDetalhes(orcamentoId: string) {
+    this.detalhesVisiveis[orcamentoId] = !this.detalhesVisiveis[orcamentoId]
+
   }
 }

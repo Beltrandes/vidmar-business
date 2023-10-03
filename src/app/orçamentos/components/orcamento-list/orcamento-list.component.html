@@ -1,5 +1,5 @@
 <div class="orcamento-list-container">
-  <div class="card orcamento" *ngFor="let orcamento of orcamentos">
+  <div class="card orcamento" *ngFor="let orcamento of orcamentos; let i = index">
     <div class="card-body">
       <div class="card-top">
         <h5 class="card-header">Orçamento Nº: {{ orcamento._id }}</h5>
@@ -30,22 +30,54 @@
         <div class="card-header">Descrição Geral</div>
         <p>{{ orcamento.descricao }}</p>
       </div>
-      <div class="detalhes" *ngIf="mostrarDetalhes">
+      <div class="detalhes" *ngIf="detalhesVisiveis[orcamento._id]">
         <div class="itens">
-          <ul *ngFor="let item of orcamento.itens">
-            <h6>Item 0{{item._id}}</h6>
-            <li>Material: {{item.material}}</li>
-            <li>Dimensões(mm): {{item.dimensoes}}</li>
-            <li>Detalhes: {{item.detalhes}}</li>
-            <li>m2: {{item.m2}}</li>
-            <li>Preço por metro: {{item.m2Valor | currency:'BRL'}}</li>
-            <li>Valor por item: {{item.valorItem | currency:'BRL'}}</li>
-            <li>Valor total: {{item.valorTotal | currency:'BRL'}}</li>
-          </ul>
+          <div class="item" *ngFor="let item of orcamento.itens; let i = index">
+            <h6>Item {{ i + 1 }} - {{item.nome}}</h6>
+            <div class="mat-det">
+              <div class="mat">
+                <h6>Material</h6>
+                <p>{{ item.material }}</p>
+              </div>
+              <div class="det">
+                <h6>Detalhes</h6>
+                <p>{{ item.detalhes }}</p>
+              </div>
+            </div>
+            <div class="numeros">
+              <p><span>Medidas</span> {{ item.medidaX | number: '1.0-2' }} x {{ item.medidaY | number: '1.0-2' }}</p>
+              <p><span>M²</span> {{ item.m2 | number: '1.0-2' }}</p>
+              <p><span>Total M²</span> {{ item.m2Total | number: '1.0-2' }}</p>
+              <p><span>Quantidade</span> {{ item.quantidade }}</p>
+            </div>
+            <div class="valores">
+              <p>
+                <span>Preço por metro</span>
+                {{ item.m2Valor | currency : "BRL" }}
+              </p>
+              <p>
+                <span>Valor por item</span>
+                {{ item.valorItem | currency : "BRL" }}
+              </p>
+              <p>
+                <span>Valor total</span>
+                {{ item.valorTotal | currency : "BRL" }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="final-infos">
+        <div class="infos valor"><h6>Valor total</h6> <p>{{orcamento.total | currency:'BRL'}}</p></div>
+        <div class="infos forma"><h6>Forma de pagamento</h6><p>{{orcamento.formaDePagamento}}</p></div>
+        <div class="infos prazo"><h6>Prazo de entrega</h6><p>{{orcamento.prazoDeEntrega}}</p></div>
+      </div>
       <div class="toggle-btn">
-        <button (click)="verDetalhes()">{{detalhesToggleText}} detalhes <i *ngIf="!mostrarDetalhes" class="bi bi-caret-down-fill"></i><i *ngIf="mostrarDetalhes" class="bi bi-caret-up-fill"></i></button>
+        <button (click)="verDetalhes(orcamento._id)">
+          {{ detalhesVisiveis[orcamento._id] ? 'Ocultar' :'Ver' }} detalhes
+          <i *ngIf="!detalhesVisiveis[orcamento._id]" class="bi bi-caret-down-fill"></i
+          ><i *ngIf="detalhesVisiveis[orcamento._id]" class="bi bi-caret-up-fill"></i>
+        </button>
       </div>
     </div>
   </div>

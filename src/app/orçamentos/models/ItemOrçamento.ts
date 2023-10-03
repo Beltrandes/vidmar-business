@@ -2,7 +2,8 @@ export interface ItemOrçamento {
   _id: string
   nome: string
   material: string
-  dimensoes: string
+  medidaX: number
+  medidaY: number
   quantidade: number
   m2: number
   detalhes: string

@@ -10,6 +10,8 @@ export interface Orçamento {
   arquivos: string[]
   status: 'Não fechado' | 'Fechado'
   total: number
+  prazoDeEntrega: string
+  formaDePagamento: string
   itens: ItemOrçamento[]
 
 }
